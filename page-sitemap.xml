@@ -7,6 +7,13 @@
     </url>
     
     <url>
+        <loc>http://yoursite.com/404.html</loc>
+        <lastmod>2019-03-26T15:18:02.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
         <loc>http://yoursite.com/about/</loc>
         <lastmod>2019-03-26T15:18:02.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -22,13 +29,6 @@
     
     <url>
         <loc>http://yoursite.com/tags/</loc>
-        <lastmod>2019-03-26T15:18:02.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>http://yoursite.com/404.html</loc>
         <lastmod>2019-03-26T15:18:02.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
