@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+
     <sitemap>
         <loc>http://yoursite.com/post-sitemap.xml</loc>
-        <lastmod>2020-03-20T13:39:14.368Z</lastmod>
+        <lastmod>2020-03-21T04:42:19.986Z</lastmod>
     </sitemap>
 
     <sitemap>
@@ -13,7 +14,7 @@
 
     <sitemap>
         <loc>http://yoursite.com/tag-sitemap.xml</loc>
-        <lastmod>2019-03-26T15:18:02.000Z</lastmod>
+        <lastmod>2020-03-21T04:42:19.986Z</lastmod>
     </sitemap>
 
 </sitemapindex>

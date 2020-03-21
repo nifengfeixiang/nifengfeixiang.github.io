@@ -198,16 +198,42 @@
             <!-- 标签云 -->
             <div id='tag_cloud' class="tags">
                 
+                    <a href="#Hexo" title="Hexo" rel="1">Hexo</a>
+                
                     <a href="#Budget Feasibility" title="Budget Feasibility" rel="1">Budget Feasibility</a>
                 
                     <a href="#Matriod" title="Matriod" rel="1">Matriod</a>
-                
-                    <a href="#Hexo" title="Hexo" rel="1">Hexo</a>
                 
             </div>
 
             <!-- 标签列表 -->
 
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="Hexo">
+                    <span class="tag-text">Hexo</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/hexo-theme-huweihuang/">
+                        <h2 class="post-title">
+                            [Hexo] Theme HuWeihuang
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                This is hexo theme Demo.
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
             
             <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="Budget Feasibility">
@@ -245,32 +271,6 @@
                         <h2 class="post-title">
                             在Matriod限制下的预算可行性机制
                         </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="Hexo">
-                    <span class="tag-text">Hexo</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/article/hexo-theme-huweihuang/">
-                        <h2 class="post-title">
-                            [Hexo] Theme HuWeihuang
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                This is hexo theme Demo.
-                            </h3>
                         
                     </a>
                     <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
@@ -447,6 +447,21 @@
 <img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 
 </html>

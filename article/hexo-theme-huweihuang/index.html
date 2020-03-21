@@ -211,7 +211,7 @@
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 post-container">
-
+    
                 <blockquote>
 <p>This HuWeihuang theme created by <a href="http://www.huweihuang.com/" target="_blank" rel="noopener">HuWeihuang</a> modified from the original Porter <a href="https://github.com/YenYuHsuan/hexo-theme-beantech" target="_blank" rel="noopener">YuHsuan</a></p>
 </blockquote>
@@ -266,7 +266,7 @@ Especially the section:</p>
 <p>Please <a class="github-button" href="https://github.com/huweihuang/hexo-theme-huweihuang" data-icon="octicon-star" aria-label="Star huweihuang/hexo-theme-huweihuang on GitHub" target="_blank" rel="noopener">Star</a> this Project if you like it! <a class="github-button" href="https://github.com/huweihuang" aria-label="Follow @huweihuang on GitHub" target="_blank" rel="noopener">Follow</a> would also be appreciated!<br>
 Peace!</p>
 
-                
+
 
                 <hr>
                 <!-- Pager -->
@@ -278,13 +278,13 @@ Peace!</p>
                     
                     
                 </ul>
-
+    
                 <br>
-
+    
                 <!--打赏-->
                 
                 <!--打赏-->
-
+    
                 <br>
                 <!--分享-->
                 
@@ -298,21 +298,21 @@ Peace!</p>
                 
                 <!-- require APlayer -->
                 
-
+    
                 <!-- duoshuo Share start -->
                 
                 <!-- 多说 Share end-->
-
+    
                 <!-- 多说评论框 start -->
                 
                 <!-- 多说评论框 end -->
-
+    
                 <!-- disqus comment start -->
                 
                 <!-- disqus comment end -->
-
+    
                 
-
+    
             </div>
             
             <!-- Tabe of Content -->
@@ -336,7 +336,7 @@ Peace!</p>
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 sidebar-container">
-
+    
                 <!-- Featured Tags -->
                 
                 <section>
@@ -349,13 +349,13 @@ Peace!</p>
                     </div>
                 </section>
                 
-
+    
                 <!-- Friends Blog -->
                 
                 <hr>
                 <h5>FRIENDS</h5>
                 <ul class="list-inline">
-
+    
                     
                         <li><a href="http://blog.csdn.net/huwh_" target="_blank">CSDN Blog 胡伟煌</a></li>
                     
@@ -410,6 +410,9 @@ Peace!</p>
         }
     }
 </style>
+
+
+
 
 
 
@@ -574,6 +577,21 @@ Peace!</p>
 <img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 
 </html>

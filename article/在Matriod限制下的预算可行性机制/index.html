@@ -213,7 +213,7 @@
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 post-container">
-
+    
                 <p><font color="009393"></font></p>
 <p><font color="ED7306"></font></p>
 <h4 id="budget-feasible-mechanism-on-matroids">Budget Feasible Mechanism on Matroids</h4>
@@ -233,8 +233,11 @@
 <p>这两点就构成了算法，同时证明该算法保证4-competitive ratio；</p>
 <p>（2）现在考虑多个拟阵，Mechanism for matroid intersections；假设现在有$k$个拟阵$\mathcal M_1,…,\mathcal M_k$，将其转化为一个真实的拟阵，$\mathcal M=(E,\mathcal I)$，此时$\mathcal I=\cap_j \mathcal I_j$；需要说明的是想要得到$\mathcal I=\cap_j \mathcal I_j$也是一个NP-hard问题；所以我们先用一个多项式时间 blackbox APX得到一个$\alpha-$近似的结果，然后后续算法与单拟阵的算法类似；</p>
 <h5 id="3-xos-function">3. XOS function</h5>
+<p>$$<br>
+jjj=l_1<br>
+$$</p>
 
-                
+
 
                 <hr>
                 <!-- Pager -->
@@ -246,13 +249,13 @@
                         </li>
                     
                 </ul>
-
+    
                 <br>
-
+    
                 <!--打赏-->
                 
                 <!--打赏-->
-
+    
                 <br>
                 <!--分享-->
                 
@@ -266,21 +269,21 @@
                 
                 <!-- require APlayer -->
                 
-
+    
                 <!-- duoshuo Share start -->
                 
                 <!-- 多说 Share end-->
-
+    
                 <!-- 多说评论框 start -->
                 
                 <!-- 多说评论框 end -->
-
+    
                 <!-- disqus comment start -->
                 
                 <!-- disqus comment end -->
-
+    
                 
-
+    
             </div>
             
             <!-- Tabe of Content -->
@@ -310,7 +313,7 @@
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 sidebar-container">
-
+    
                 <!-- Featured Tags -->
                 
                 <section>
@@ -325,13 +328,13 @@
                     </div>
                 </section>
                 
-
+    
                 <!-- Friends Blog -->
                 
                 <hr>
                 <h5>FRIENDS</h5>
                 <ul class="list-inline">
-
+    
                     
                         <li><a href="http://blog.csdn.net/huwh_" target="_blank">CSDN Blog 胡伟煌</a></li>
                     
@@ -386,6 +389,9 @@
         }
     }
 </style>
+
+
+
 
 
 
@@ -550,6 +556,21 @@
 <img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 
 </html>
