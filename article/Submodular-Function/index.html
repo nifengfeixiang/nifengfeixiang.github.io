@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [Hexo] Theme HuWeihuang - COOLA | Blog
+          Submodular Function - COOLA | Blog
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/article/hexo-theme-huweihuang/">
+    <link rel="canonical" href="http://yoursite.com/article/Submodular-Function/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -71,7 +71,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/article_header/article_header.png')
+            background-image: url('/img/article_header/article_bg.jpg')
             /*post*/
         
     }
@@ -88,14 +88,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                              <a class="tag" href="/tags/#Submodular Function" title="Submodular Function">Submodular Function</a>
                             
                         </div>
-                        <h1>[Hexo] Theme HuWeihuang</h1>
-                        <h2 class="subheading">This is hexo theme Demo.</h2>
+                        <h1>Submodular Function</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Xiang Liu on
-                            2017-09-18
+                            2020-03-22
                         </span>
                     </div>
                 
@@ -212,46 +212,61 @@
                 col-md-10 col-md-offset-1
                 post-container">
     
-                <blockquote>
-<p>This HuWeihuang theme created by <a href="http://www.huweihuang.com/" target="_blank" rel="noopener">HuWeihuang</a> modified from the original Porter <a href="https://github.com/YenYuHsuan/hexo-theme-beantech" target="_blank" rel="noopener">YuHsuan</a></p>
-</blockquote>
-<h1 id="live-demo"><a href="#Live-Demo" class="headerlink" title="Live Demo"></a>Live Demo</h1><p>Hu Weihuang Blog : <a href="http://www.huweihuang.com/" target="_blank" rel="noopener">www.huweihuang.com</a></p>
-<p><img src="https://res.cloudinary.com/dqxtn0ick/image/upload/v1553666111/blog/blog.jpg" alt="Theme HuWeihuang"></p>
-<h1 id="install-hexo"><a href="#Install-Hexo" class="headerlink" title="Install Hexo"></a>Install Hexo</h1><p>Install Node.js  and Git</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>For Mac</span><br><span class="line">brew install node</span><br><span class="line">brew install git</span><br></pre></td></tr></table></figure>
-<p>Install hexo</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>For more:https://hexo.io/zh-cn/index.html</span><br></pre></td></tr></table></figure>
-<h1 id="theme-usage"><a href="#Theme-Usage" class="headerlink" title="Theme Usage"></a>Theme Usage</h1><h2 id="init"><a href="#Init" class="headerlink" title="Init"></a>Init</h2><hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/huweihuang/hexo-theme-huweihuang.git ./hexo-huweihuang</span><br><span class="line"><span class="built_in">cd</span> hexo-huweihuang</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<h2 id="modify"><a href="#Modify" class="headerlink" title="Modify"></a>Modify</h2><hr>
-<p>Modify <code>_config.yml</code> file with your own info.<br>Especially the section:</p>
-<h3 id="deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h3><p>Replace to your own repo!<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/&lt;yourAccount&gt;/&lt;repo&gt;</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">&lt;your-branch&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="sidebar-settings"><a href="#Sidebar-settings" class="headerlink" title="Sidebar settings"></a>Sidebar settings</h3><p>Copy your avatar image to <code>&lt;root&gt;/img/</code> and modify the <code>_config.yml</code>:<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sidebar:</span> <span class="literal">true</span>    <span class="comment"># whether or not using Sidebar.</span></span><br><span class="line"><span class="attr">sidebar-about-description:</span> <span class="string">"&lt;your description&gt;"</span></span><br><span class="line"><span class="attr">sidebar-avatar:</span> <span class="string">img/&lt;your</span> <span class="string">avatar</span> <span class="string">path&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>and activate your personal widget you like<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">widgets:</span>         <span class="comment"># here are widget you can use, you can comment out</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">featured-tags</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">short-about</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">recent-posts</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">friends-blog</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">archive</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">category</span></span><br></pre></td></tr></table></figure></p>
-<p>if you want to add sidebar widget, please add at <code>layout/_widget</code>.</p>
-<h3 id="signature-setup"><a href="#Signature-Setup" class="headerlink" title="Signature Setup"></a>Signature Setup</h3><p>Copy your signature image to <code>&lt;root&gt;/img/signature</code> and modify the <code>_config.yml</code>:<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">signature:</span> <span class="literal">true</span>   <span class="comment"># show signature</span></span><br><span class="line"><span class="attr">signature-img:</span> <span class="string">img/signature/&lt;your-signature-ID&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="go-to-top-icon-setup"><a href="#Go-to-top-icon-Setup" class="headerlink" title="Go to top icon Setup"></a>Go to top icon Setup</h3><p>My icon is using iron man, you can change to your own icon at <code>css/image</code>.</p>
-<h3 id="post-tag"><a href="#Post-tag" class="headerlink" title="Post tag"></a>Post tag</h3><p>You can decide to show post tags or not.<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">home_posts_tag:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="/img/article/tag.png" alt="home_posts_tag-true"></p>
-<h3 id="markdown-render"><a href="#Markdown-render" class="headerlink" title="Markdown render"></a>Markdown render</h3><p>My markdown render engine plugin is <a href="https://github.com/celsomiranda/hexo-renderer-markdown-it" target="_blank" rel="noopener">hexo-renderer-markdown-it</a>.<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Markdown-it config</span></span><br><span class="line"><span class="comment">## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki</span></span><br><span class="line"><span class="attr">markdown:</span></span><br><span class="line"><span class="attr">  render:</span></span><br><span class="line"><span class="attr">    html:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    xhtmlOut:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">    breaks:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    linkify:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    typographer:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    quotes:</span> <span class="string">'“”‘’'</span></span><br></pre></td></tr></table></figure></p>
-<p>and if you want to change the header anchor ‘ℬ’, you can go to <code>layout/post.ejs</code> to change it.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span>(<span class="string">"https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        anchors.options = &#123;</span><br><span class="line">          visible: <span class="string">'hover'</span>,</span><br><span class="line">          placement: <span class="string">'left'</span>,</span><br><span class="line">          icon: ℬ <span class="comment">// this is the header anchor "unicode" icon</span></span><br><span class="line">        &#125;;</span><br></pre></td></tr></table></figure></p>
-<h2 id="hexo-basics"><a href="#Hexo-Basics" class="headerlink" title="Hexo Basics"></a>Hexo Basics</h2><hr>
-<p>Some hexo command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo new post <span class="string">"&lt;post name&gt;"</span> <span class="comment"># you can change post to another layout if you want</span></span><br><span class="line">hexo clean &amp;&amp; hexo generate <span class="comment"># generate the static file</span></span><br><span class="line">hexo server <span class="comment"># run hexo in local environment</span></span><br><span class="line">hexo deploy <span class="comment"># hexo will push the static files automatically into the specific branch(gh-pages) of your repo!</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="have-fun-_"><a href="#Have-fun" class="headerlink" title="Have fun ^_^"></a>Have fun ^_^</h1><hr>
-<!-- Place this tag in your head or just before your close body tag. -->
-<p><script async defer src="https://buttons.github.io/buttons.js"></script><br><!-- Place this tag where you want the button to render. --></p>
-<p>Please <a class="github-button" href="https://github.com/huweihuang/hexo-theme-huweihuang" data-icon="octicon-star" aria-label="Star huweihuang/hexo-theme-huweihuang on GitHub" target="_blank" rel="noopener">Star</a> this Project if you like it! <a class="github-button" href="https://github.com/huweihuang" aria-label="Follow @huweihuang on GitHub" target="_blank" rel="noopener">Follow</a> would also be appreciated!<br>Peace!</p>
+                <font color="009393"></font>
 
+<font color="ED7306"></font>
+
+<h4 id="1-definition"><a href="#1-Definition" class="headerlink" title="1. Definition"></a>1. Definition</h4><p>子模性有很大的应用场景，如viral marketing，information gathering，image segmentation，document summarization等等；子模性是set function的一种性质，$f(S),S\subseteq V$；其实本质上是一种边际效益递减的函数（体现了一种diminishing return property）；首先我们定义discrete derivative:</p>
+<blockquote>
+<p>Definition (Discrete derivative) : For a set function f : $2^V, S \subseteq V$ , and $e \in V$ , let $\Delta f (e | S) := f(S \cup \{e\}) − f(S)$ be the discrete derivative of $f$ at $ S$ with respect to $e$.</p>
+</blockquote>
+<p>根据这个我们给出子模性的定义：</p>
+<blockquote>
+<p>Definition (submodularity) A function $f$ is submodular if for every $A\subseteq B\subseteq V$, and $e\in V\setminus B$ it holds that: $\Delta(e|A)\ge \Delta(e|B)$; or for every $A,B\subseteq V$,$f(A \cap B)+f(A \cup B) \leq f(A)+f(B)$ ;</p>
+</blockquote>
+<p>在子模函数中，有一种重要的子类型为单调的子模函数monotone：如果$A\subseteq B\subseteq V$，$f(A)\le f(B)$；</p>
+<p>同时，子模函数也具有很多有用的性质：</p>
+<ul>
+<li>多个子模函数的非负线性组合依然具有子模性；</li>
+<li>如果采用residual（剩余），依然是子模函数：如$g$ 是子模函数，$A,B\subset V$，那么$f(S)=g(S\cup B)-g(B)$依然是子模函数；</li>
+<li>如果是使用truncation，与一个常数$c$取最大最小，$f(S)=\min\{g(S),c\}$依然保证子模性；<font color="009393">需要注意的是，多个子模函数取max或者是min，这样的函数不一定具有子模性；</font></li>
+</ul>
+<h4 id="2-greedy-method"><a href="#2-Greedy-method" class="headerlink" title="2. Greedy method"></a>2. Greedy method</h4><p>主要介绍子模函数最大化的方法；常见的问题形式是，在集合$S$受到限制的情形下的函数最大化，一种常见的constraint是cardinality constraints:</p>
+<script type="math/tex; mode=display">
+\max_{S\subseteq V} f(S), \ \ s.t. \ |S|\le k</script><p>这样一个简单形式的问题是一个NP-hard问题，因此有很多工作注重于近似算法的研究。</p>
+<ul>
+<li>Greedy：贪心的思想很简单，每次选择那个能够保证边际效益最大的元素，如下，这个算法可以保证$1-\frac{1}{e}$近似；<script type="math/tex; mode=display">
+S_{i}=S_{i-1} \cup\left\{\arg \max _{e} \Delta\left(e | S_{i-1}\right)\right\}</script></li>
+</ul>
+<ul>
+<li>Matroid constraints：贪心的选择element直到不能在选择元素为止，可见上一篇在拟阵限制下的预算可行性机制研究；</li>
+</ul>
+<p>与(1)相对应的，另一些工作研究在保证一定submodular value的限制下，最小化set size：</p>
+<script type="math/tex; mode=display">
+S^{*}=\underset{S}{\arg \min }|S| \text { s.t. } f(S) \geq q</script><h4 id="3-more-complex-constraints"><a href="#3-More-complex-constraints" class="headerlink" title="3. More complex constraints"></a>3. More complex constraints</h4><ul>
+<li><p>Knapsack constraints：每个item可能有成本参数$c_i$，需要在budget $B $的限制下最大化函数；</p>
+<script type="math/tex; mode=display">
+\max _{S} f(S) \text { s.t. } \sum_{v \in S} c(v) \leq B</script></li>
+<li><p>Multilinear extension：将set选择问题放缩为一个连续问题进行优化，然后用rounding的方法得到一个可行解</p>
+<script type="math/tex; mode=display">
+\hat{f}(\mathbf{x})=\sum_{S \subseteq V} f(S) \prod_{i \in S} x_{i} \prod_{j \notin S}\left(1-x_{j}\right)</script></li>
+<li><p>Robust submodular optimization：所有的item可能会有不同的类别，希望选择item是能保证每个类别的value要尽量均衡，用$f_i(S)$表示该类别中的value总和：</p>
+<script type="math/tex; mode=display">
+S^{*}=\underset{|S| \leq k}{\arg \max } \min _{i} f_{i}(S)</script></li>
+</ul>
+<p>  可是函数$ f_{min}=\min _{i} f_{i}(S)$不是全局具有子模性，同时贪心算法可能会得到很差的解，事实上有工作证明，$f_{min}$是不可近似的；没有算法能够不保证$f_{min}(S)\ge \alpha(n)OPT$，$\alpha(n)$是与问题规模有关的函数；鉴于这样的难度，有工作研究使得最终解能达到k-size的最优解，但是需要额外的增加一定上限的set size：</p>
+<script type="math/tex; mode=display">
+  f_{min}(S)\ge OPT_k, |S| \leq\left(1+\max _{v} \ln \sum_{i} f_{i}(\{v\})\right) k</script>
 
 
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/article/在Matriod限制下的预算可行性机制/" data-toggle="tooltip" data-placement="top" title="在Matriod限制下的预算可行性机制">&larr; Previous Post</a>
-                        </li>
                     
+                        <li class="next">
+                            <a href="/article/在Matriod限制下的预算可行性机制/" data-toggle="tooltip" data-placement="top" title="在Matriod限制下的预算可行性机制">Next Post &rarr;</a>
+                        </li>
                     
                 </ul>
     
@@ -295,12 +310,18 @@
             <!-- Table of Contents -->
 
   
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
     
       <aside id="sidebar">
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#live-demo"><span class="toc-nav-number">1.</span> <span class="toc-nav-text"><a href="#Live-Demo" class="headerlink" title="Live Demo"></a>Live Demo</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#install-hexo"><span class="toc-nav-number">2.</span> <span class="toc-nav-text"><a href="#Install-Hexo" class="headerlink" title="Install Hexo"></a>Install Hexo</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#theme-usage"><span class="toc-nav-number">3.</span> <span class="toc-nav-text"><a href="#Theme-Usage" class="headerlink" title="Theme Usage"></a>Theme Usage</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#init"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text"><a href="#Init" class="headerlink" title="Init"></a>Init</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#modify"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text"><a href="#Modify" class="headerlink" title="Modify"></a>Modify</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#deployment"><span class="toc-nav-number">3.2.1.</span> <span class="toc-nav-text"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#sidebar-settings"><span class="toc-nav-number">3.2.2.</span> <span class="toc-nav-text"><a href="#Sidebar-settings" class="headerlink" title="Sidebar settings"></a>Sidebar settings</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#signature-setup"><span class="toc-nav-number">3.2.3.</span> <span class="toc-nav-text"><a href="#Signature-Setup" class="headerlink" title="Signature Setup"></a>Signature Setup</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#go-to-top-icon-setup"><span class="toc-nav-number">3.2.4.</span> <span class="toc-nav-text"><a href="#Go-to-top-icon-Setup" class="headerlink" title="Go to top icon Setup"></a>Go to top icon Setup</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#post-tag"><span class="toc-nav-number">3.2.5.</span> <span class="toc-nav-text"><a href="#Post-tag" class="headerlink" title="Post tag"></a>Post tag</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#markdown-render"><span class="toc-nav-number">3.2.6.</span> <span class="toc-nav-text"><a href="#Markdown-render" class="headerlink" title="Markdown render"></a>Markdown render</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#hexo-basics"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text"><a href="#Hexo-Basics" class="headerlink" title="Hexo Basics"></a>Hexo Basics</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#have-fun-_"><span class="toc-nav-number">4.</span> <span class="toc-nav-text"><a href="#Have-fun" class="headerlink" title="Have fun ^_^"></a>Have fun ^_^</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1-definition"><span class="toc-nav-number">1.</span> <span class="toc-nav-text"><a href="#1-Definition" class="headerlink" title="1. Definition"></a>1. Definition</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2-greedy-method"><span class="toc-nav-number">2.</span> <span class="toc-nav-text"><a href="#2-Greedy-method" class="headerlink" title="2. Greedy method"></a>2. Greedy method</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#3-more-complex-constraints"><span class="toc-nav-number">3.</span> <span class="toc-nav-text"><a href="#3-More-complex-constraints" class="headerlink" title="3. More complex constraints"></a>3. More complex constraints</span></a></li></ol>
         
         </div>
       </aside>
@@ -320,7 +341,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                          <a class="tag" href="/tags/#Submodular Function" title="Submodular Function">Submodular Function</a>
                         
                     </div>
                 </section>

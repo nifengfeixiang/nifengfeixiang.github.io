@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>http://yoursite.com/tags/Submodular-Function/</loc>
+        <lastmod>2020-03-22T03:37:15.831Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://yoursite.com/tags/Matriod/</loc>
         <lastmod>2020-03-21T08:14:39.117Z</lastmod>
         <changefreq>weekly</changefreq>
