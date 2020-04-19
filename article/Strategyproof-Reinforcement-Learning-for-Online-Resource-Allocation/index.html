@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [Hexo] Theme HuWeihuang - COOLA | Blog
+          Strategyproof Reinforcement Learning for Online Resource Allocation - COOLA | Blog
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/article/hexo-theme-huweihuang/">
+    <link rel="canonical" href="http://yoursite.com/article/Strategyproof-Reinforcement-Learning-for-Online-Resource-Allocation/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -71,7 +71,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/article_header/article_header.png')
+            background-image: url('/img/article_header/article_bg.jpg')
             /*post*/
         
     }
@@ -88,14 +88,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                              <a class="tag" href="/tags/#RL" title="RL">RL</a>
                             
                         </div>
-                        <h1>[Hexo] Theme HuWeihuang</h1>
-                        <h2 class="subheading">This is hexo theme Demo.</h2>
+                        <h1>Strategyproof Reinforcement Learning for Online Resource Allocation</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Xiang Liu on
-                            2017-09-18
+                            2020-04-13
                         </span>
                     </div>
                 
@@ -212,35 +212,81 @@
                 col-md-10 col-md-offset-1
                 post-container">
     
-                <blockquote>
-<p>This HuWeihuang theme created by <a href="http://www.huweihuang.com/" target="_blank" rel="noopener">HuWeihuang</a> modified from the original Porter <a href="https://github.com/YenYuHsuan/hexo-theme-beantech" target="_blank" rel="noopener">YuHsuan</a></p>
+                <font color="009393"></font>
+
+<font color="ED7306"></font>
+
+<h4 id="1-problem"><a href="#1-Problem" class="headerlink" title="1. Problem"></a>1. Problem</h4><p>本文主要是讨论在线如何在线进行资源分配的问题，在有需求资源的任务不断到达的场景中，需要立即做出是否分配资源的决策；在这样的问题中，会有以下几种挑战：<font color="009393">一是，因为不知道未来到达的任务的具体信息，因此在做出决策的时候需要在立即回报和未来收益之间作权衡；二是，准确的任务到达模型并不能知道，需要通过在线学习的方式获得；三是，任务的拥有者可能有自己的策略，例如谎报他的资源需求量以及任务的价值；</font></p>
+<p>前人的工作中，有一些采用RL方法来解决在线资源分配的问题，但是很少有工作会考虑集合RL和Strategyproof两种方法，本文就是主要讨论如何结合这两者；</p>
+<blockquote>
+<p>一篇类似的文章，采用RL进行Mechanism Design；考虑将一种有限的资源分配给strategic agents；</p>
+<p>Reinforcement Mechanism Design for e-Commerce， WWW，2018</p>
 </blockquote>
-<h1 id="live-demo"><a href="#Live-Demo" class="headerlink" title="Live Demo"></a>Live Demo</h1><p>Hu Weihuang Blog : <a href="http://www.huweihuang.com/" target="_blank" rel="noopener">www.huweihuang.com</a></p>
-<p><img src="https://res.cloudinary.com/dqxtn0ick/image/upload/v1553666111/blog/blog.jpg" alt="Theme HuWeihuang"></p>
-<h1 id="install-hexo"><a href="#Install-Hexo" class="headerlink" title="Install Hexo"></a>Install Hexo</h1><p>Install Node.js  and Git</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>For Mac</span><br><span class="line">brew install node</span><br><span class="line">brew install git</span><br></pre></td></tr></table></figure>
-<p>Install hexo</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>For more:https://hexo.io/zh-cn/index.html</span><br></pre></td></tr></table></figure>
-<h1 id="theme-usage"><a href="#Theme-Usage" class="headerlink" title="Theme Usage"></a>Theme Usage</h1><h2 id="init"><a href="#Init" class="headerlink" title="Init"></a>Init</h2><hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/huweihuang/hexo-theme-huweihuang.git ./hexo-huweihuang</span><br><span class="line"><span class="built_in">cd</span> hexo-huweihuang</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<h2 id="modify"><a href="#Modify" class="headerlink" title="Modify"></a>Modify</h2><hr>
-<p>Modify <code>_config.yml</code> file with your own info.<br>Especially the section:</p>
-<h3 id="deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h3><p>Replace to your own repo!<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/&lt;yourAccount&gt;/&lt;repo&gt;</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">&lt;your-branch&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="sidebar-settings"><a href="#Sidebar-settings" class="headerlink" title="Sidebar settings"></a>Sidebar settings</h3><p>Copy your avatar image to <code>&lt;root&gt;/img/</code> and modify the <code>_config.yml</code>:<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sidebar:</span> <span class="literal">true</span>    <span class="comment"># whether or not using Sidebar.</span></span><br><span class="line"><span class="attr">sidebar-about-description:</span> <span class="string">"&lt;your description&gt;"</span></span><br><span class="line"><span class="attr">sidebar-avatar:</span> <span class="string">img/&lt;your</span> <span class="string">avatar</span> <span class="string">path&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>and activate your personal widget you like<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">widgets:</span>         <span class="comment"># here are widget you can use, you can comment out</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">featured-tags</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">short-about</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">recent-posts</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">friends-blog</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">archive</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">category</span></span><br></pre></td></tr></table></figure></p>
-<p>if you want to add sidebar widget, please add at <code>layout/_widget</code>.</p>
-<h3 id="signature-setup"><a href="#Signature-Setup" class="headerlink" title="Signature Setup"></a>Signature Setup</h3><p>Copy your signature image to <code>&lt;root&gt;/img/signature</code> and modify the <code>_config.yml</code>:<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">signature:</span> <span class="literal">true</span>   <span class="comment"># show signature</span></span><br><span class="line"><span class="attr">signature-img:</span> <span class="string">img/signature/&lt;your-signature-ID&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="go-to-top-icon-setup"><a href="#Go-to-top-icon-Setup" class="headerlink" title="Go to top icon Setup"></a>Go to top icon Setup</h3><p>My icon is using iron man, you can change to your own icon at <code>css/image</code>.</p>
-<h3 id="post-tag"><a href="#Post-tag" class="headerlink" title="Post tag"></a>Post tag</h3><p>You can decide to show post tags or not.<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">home_posts_tag:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="/img/article/tag.png" alt="home_posts_tag-true"></p>
-<h3 id="markdown-render"><a href="#Markdown-render" class="headerlink" title="Markdown render"></a>Markdown render</h3><p>My markdown render engine plugin is <a href="https://github.com/celsomiranda/hexo-renderer-markdown-it" target="_blank" rel="noopener">hexo-renderer-markdown-it</a>.<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Markdown-it config</span></span><br><span class="line"><span class="comment">## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki</span></span><br><span class="line"><span class="attr">markdown:</span></span><br><span class="line"><span class="attr">  render:</span></span><br><span class="line"><span class="attr">    html:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    xhtmlOut:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">    breaks:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    linkify:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    typographer:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    quotes:</span> <span class="string">'“”‘’'</span></span><br></pre></td></tr></table></figure></p>
-<p>and if you want to change the header anchor ‘ℬ’, you can go to <code>layout/post.ejs</code> to change it.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span>(<span class="string">"https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        anchors.options = &#123;</span><br><span class="line">          visible: <span class="string">'hover'</span>,</span><br><span class="line">          placement: <span class="string">'left'</span>,</span><br><span class="line">          icon: ℬ <span class="comment">// this is the header anchor "unicode" icon</span></span><br><span class="line">        &#125;;</span><br></pre></td></tr></table></figure></p>
-<h2 id="hexo-basics"><a href="#Hexo-Basics" class="headerlink" title="Hexo Basics"></a>Hexo Basics</h2><hr>
-<p>Some hexo command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo new post <span class="string">"&lt;post name&gt;"</span> <span class="comment"># you can change post to another layout if you want</span></span><br><span class="line">hexo clean &amp;&amp; hexo generate <span class="comment"># generate the static file</span></span><br><span class="line">hexo server <span class="comment"># run hexo in local environment</span></span><br><span class="line">hexo deploy <span class="comment"># hexo will push the static files automatically into the specific branch(gh-pages) of your repo!</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="have-fun-_"><a href="#Have-fun" class="headerlink" title="Have fun ^_^"></a>Have fun ^_^</h1><hr>
-<!-- Place this tag in your head or just before your close body tag. -->
-<p><script async defer src="https://buttons.github.io/buttons.js"></script><br><!-- Place this tag where you want the button to render. --></p>
-<p>Please <a class="github-button" href="https://github.com/huweihuang/hexo-theme-huweihuang" data-icon="octicon-star" aria-label="Star huweihuang/hexo-theme-huweihuang on GitHub" target="_blank" rel="noopener">Star</a> this Project if you like it! <a class="github-button" href="https://github.com/huweihuang" aria-label="Follow @huweihuang on GitHub" target="_blank" rel="noopener">Follow</a> would also be appreciated!<br>Peace!</p>
+<h4 id="2-online-resource-allocation"><a href="#2-Online-resource-allocation" class="headerlink" title="2. Online resource allocation"></a>2. Online resource allocation</h4><p>首先简单介绍下在线资源分配问题：</p>
+<ul>
+<li>有限的时间区间：$T=\left\{1,2, \ldots, t_{\max }\right\}$;</li>
+<li>资源提供者有不同的资源：$R=\left\{1,2, \ldots, r_{\max }\right\}$, 每个资源的数量对应为$a_r$；</li>
+<li>每个time slot 有一个任务到达，它的类型表示为：$\theta_{i}=\left(v_{i}, d_{i}, \boldsymbol{q}_{i}\right)$，分别对应表示为价值，任务的持续时间，资源需求向量；$\theta_{&lt;i}$表示为$i$时刻之前到达的所有任务；</li>
+<li>分配策略Allocation policy $\pi\left(\theta_{i}, \theta_{&lt;i}\right) \in\{0,1\}$当且仅当任务请求的资源够且完成任务时间不会超过最大时间$t_{max}$时才能被分配；</li>
+</ul>
+<p>优化目标为设计一个最优分配策略最大化Social welfare：</p>
+<script type="math/tex; mode=display">
+\pi^{*}=\operatorname{argmax}_{\pi} \mathbb{E}_{\theta}\left[\sum_{i=1}^{t_{\max }} \pi\left(\theta_{i}, \theta_{<i}\right) \cdot v_{i}\right]</script><p>这篇文章考虑strategic agent，定义agent报出的实际信息为：$\hat{\theta}_{i}=\left(\hat{v}_{i}, \hat{d}_{i}, \hat{\boldsymbol{q}}_{i}\right)$;同时向agent收取费用：$p\left(\hat{\theta}_{i}, \hat{\theta}_{<i}\right)$;因此一个mechanism表示为：$\mathcal{m}=(\pi, p)$;="" 由此定义agent的收益为value减去payment，$\phi\left(\hat{\theta}_{i},="" \theta_{i}\right)$表示<font="" color="ED7306">如果agent请求的资源数量不少于他自己的真实需求则为1&lt;/font&gt;；</i}\right)$;因此一个mechanism表示为：$\mathcal{m}=(\pi,></p>
+<script type="math/tex; mode=display">
+u_{i}\left(\hat{\theta}_{i}, \theta_{i}, \hat{\theta}_{<i}\right)=\pi\left(\hat{\theta}_{i}, \hat{\theta}_{<i}\right) \phi\left(\hat{\theta}_{i}, \theta_{i}\right) v_{i}-p\left(\hat{\theta}_{i}, \hat{\theta}_{<i}\right)</script><p>Some Assumptions:</p>
+<ul>
+<li>每个agent不能操控在系统中被考虑的序列；</li>
+<li><font color="ED7306">每个agent只有一个任务；</font>
+
+
+
+</li>
+</ul>
+<h4 id="3-theorem-for-strategy-proof"><a href="#3-Theorem-for-Strategy-proof" class="headerlink" title="3. Theorem for Strategy-proof"></a>3. Theorem for Strategy-proof</h4><p>本文方法的一个重要基础是，什么样的机制能够保证可信呢？尤其是在非single-parameter的情形下？</p>
+<p>本文提出需要保证以下两个条件：</p>
+<ul>
+<li><p>Monotonicity：如果一个agent成为winner，那么其他任何一个报出更高value且需要资源更少的agent也是winner；</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\pi\left(\theta_{i}, \theta_{<i}\right)=1 \Longrightarrow \pi\left(\theta_{j}, \theta_{<i}\right)=1, \forall \theta_{i} \leq \theta_{j}, \theta_{<i},\theta_{i} \leq \theta_{j} \Longleftrightarrow\left(v_{i} \leq v_{j}\right) \wedge\left(d_{i} \geq\right.\left.d_{j}\right) \wedge\left(q_{i, 1} \geq q_{j, 1}\right) \wedge \ldots \wedge\left(q_{i, r_{\max }} \geq q_{j, r_{\max }}\right)
+\end{aligned}</script></li>
+<li><p>Critical Payment：需要付为了保证winner所需要的最小value值；$p\left(\theta_{i}, \theta_{&lt;i}\right)=\inf _{\hat{v}_{i}} \hat{v}_{i}, \text { s.t., } \pi\left(\left(\hat{v}_{i}, d_{i}, \boldsymbol{q}_{i}\right), \theta_{&lt;i}\right)=1$;</p>
+</li>
+</ul>
+<h4 id="4-rl"><a href="#4-RL" class="headerlink" title="4. RL"></a>4. RL</h4><p>MDP模型：$(S, A, p, \varrho)$</p>
+<ul>
+<li><p>State S: 包含当前时间$I$，到达任务的相关信息，以及每个单位资源的占用情况$O$;</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+s=\left[i, \hat{v}_{i}, \hat{d}_{i}, \hat{q}_{i, 1}, \ldots, \hat{q}_{i, r_{\max }}\right.\left.0_{1,1}, \ldots, o_{1, a_{1}}, \ldots, o_{r_{\max }, 1}, \ldots, o_{r_{\max }, a_{r_{\max }}}\right]
+\end{aligned}</script></li>
+<li><p>Action A: $A=\{0,1\}$接受或者不接受；</p>
+</li>
+<li><p>Transition function p: $p(s’|s,a)\in [0,1]$；</p>
+</li>
+<li><p>Reward $\varrho$：$\varrho(s,a)=\hat v_i$；</p>
+</li>
+</ul>
+<p>Q-function:</p>
+<script type="math/tex; mode=display">
+Q(s, a)=\varrho(s, a)+\Sigma_{s^{\prime}} p\left(s^{\prime} | s, a\right) Q\left(s^{\prime}, \pi\left(s^{\prime}\right)\right)</script><p>我们用其他的function来近似$Q(s,a)$；通常常用的方式是采用深度强化学习网络，但是为了能够保证<font color="ED7306">单调性我们采用线性的function；</font>我们用d-维特征$\boldsymbol{f}(s)$来表示状态的特征向量，用两个d-维向量$\boldsymbol{w}_{0} \text { and } \boldsymbol{w}_{1}$ 来估计两种动作的Q值：</p>
+<script type="math/tex; mode=display">
+Q(s, a, w)=w_{a} f(s)^{\top}=\sum_{i=1}^{d} w_{a, i} f_{i}(s)</script><p><font color="ED7306">所以RL要做的是学习向量</font>所以RL要做的是学习向量w；由此根据Q值，可以采用一个贪心的策略：</p>
+<script type="math/tex; mode=display">
+\pi(s)=\arg \max _{a} Q(s, a, w)</script><h4 id="5-strategy-proof-rl"><a href="#5-Strategy-proof-RL" class="headerlink" title="5. Strategy-proof RL"></a>5. Strategy-proof RL</h4><p>基于以上对RL和单调理论的描述，下面描述主体的算法；对当前的状态$s_i(\hat \theta_i,s_{-i})$表示状态中报出的信息，$s_{-i}$表明剩下的部分；下面来分析函数$\boldsymbol{f}(\cdot)$，用来生成为状态$s$的特征向量；</p>
+<p>对于一个向量函数$\boldsymbol{f}(\cdot)$，如果其中第$k$个特征满足，如果不是增$\mathcal{D}(f)$：$f_{k}\left(s_{i}\left(\hat{\theta}_{i}, s_{-i}\right)\right) \leq f_{k}\left(s_{i}\left(\hat{\theta}_{i}^{\prime}, s_{-i}\right)\right), \forall \hat{\theta}_{i} \leq \hat{\theta}_{i}^{\prime}, s_{-i}$,即是减$\mathcal{I}(f)$, $f_{k}\left(s_{i}\left(\hat{\theta}_{i}, s_{-i}\right)\right) \geq f_{k}\left(s_{i}\left(\hat{\theta}_{i}^{\prime}, s_{-i}\right)\right), \forall \hat{\theta}_{i} \leq \hat{\theta}_{i}^{\prime}, s_{-I}$，则称之为这样的向量为monotonic特征向量；</p>
+<p>可以证明对于一个allocation policy $\pi$ 具有单调性，只需满足两个条件：</p>
+<ul>
+<li>$\boldsymbol{f}$是一个monotonic特征向量；</li>
+<li>对于增特征$j$，$w_{1,j}\ge w_{0,j}$，执行接受的权重须大于拒绝的权重；对于减特征$j$，$w_{1,j}\le w_{0,j}$，执行接受的权重须小于拒绝的权重；</li>
+</ul>
+<p>那么，在训练的过程中，该如何保证训练出来的权重满足这样的条件呢，当训练处一个新的权重$w_a’$,需要进一步调整权重使得保证上面的条件，更新如下：</p>
+<script type="math/tex; mode=display">
+w_{a, i}=\left\{\begin{array}{ll}w_{a, i}^{\prime} & \text { if } i \notin \mathcal{T}(f) \\ \min \left(w_{a, i}^{\prime}, w_{1-a, i}^{\prime}\right) & \text { if }(a=1 \wedge i \in \mathcal{D}(f)) \\ & \vee(a=0 \wedge i \in \mathcal{I}(f)) \\ \max \left(w_{a, i}^{\prime}, w_{1-a, i}^{\prime}\right) & \text { otherwise }\end{array}\right.</script><p>上面完成了allocation policy $\pi$，下面确定如何定payment，我们需要找到一个value阈值，即当agent报低于这个阈值时，就会被拒绝，即：</p>
+<script type="math/tex; mode=display">
+\sum_{j=1}^{d} w_{1, j} f_{j}(s(\theta))=\sum_{j=1}^{d} w_{0, j} f_{j}(s(\theta))</script><p>payment为：</p>
+<script type="math/tex; mode=display">
+\hat{v}_{i}=\frac{1}{w_{1, l}-w_{0, l}} \sum_{j=1, j \neq l}^{d}\left(w_{0, j}-w_{1, j}\right) f_{j}(s(\theta))</script><p>以上就是Mechanism的主体部分。</p>
 
 
 
@@ -248,10 +294,10 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/article/在Matriod限制下的预算可行性机制/" data-toggle="tooltip" data-placement="top" title="在Matriod限制下的预算可行性机制">&larr; Previous Post</a>
-                        </li>
                     
+                        <li class="next">
+                            <a href="/article/Pointer-Networks/" data-toggle="tooltip" data-placement="top" title="Pointer Networks">Next Post &rarr;</a>
+                        </li>
                     
                 </ul>
     
@@ -295,12 +341,18 @@
             <!-- Table of Contents -->
 
   
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
     
       <aside id="sidebar">
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#live-demo"><span class="toc-nav-number">1.</span> <span class="toc-nav-text"><a href="#Live-Demo" class="headerlink" title="Live Demo"></a>Live Demo</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#install-hexo"><span class="toc-nav-number">2.</span> <span class="toc-nav-text"><a href="#Install-Hexo" class="headerlink" title="Install Hexo"></a>Install Hexo</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#theme-usage"><span class="toc-nav-number">3.</span> <span class="toc-nav-text"><a href="#Theme-Usage" class="headerlink" title="Theme Usage"></a>Theme Usage</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#init"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text"><a href="#Init" class="headerlink" title="Init"></a>Init</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#modify"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text"><a href="#Modify" class="headerlink" title="Modify"></a>Modify</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#deployment"><span class="toc-nav-number">3.2.1.</span> <span class="toc-nav-text"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#sidebar-settings"><span class="toc-nav-number">3.2.2.</span> <span class="toc-nav-text"><a href="#Sidebar-settings" class="headerlink" title="Sidebar settings"></a>Sidebar settings</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#signature-setup"><span class="toc-nav-number">3.2.3.</span> <span class="toc-nav-text"><a href="#Signature-Setup" class="headerlink" title="Signature Setup"></a>Signature Setup</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#go-to-top-icon-setup"><span class="toc-nav-number">3.2.4.</span> <span class="toc-nav-text"><a href="#Go-to-top-icon-Setup" class="headerlink" title="Go to top icon Setup"></a>Go to top icon Setup</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#post-tag"><span class="toc-nav-number">3.2.5.</span> <span class="toc-nav-text"><a href="#Post-tag" class="headerlink" title="Post tag"></a>Post tag</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#markdown-render"><span class="toc-nav-number">3.2.6.</span> <span class="toc-nav-text"><a href="#Markdown-render" class="headerlink" title="Markdown render"></a>Markdown render</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#hexo-basics"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text"><a href="#Hexo-Basics" class="headerlink" title="Hexo Basics"></a>Hexo Basics</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#have-fun-_"><span class="toc-nav-number">4.</span> <span class="toc-nav-text"><a href="#Have-fun" class="headerlink" title="Have fun ^_^"></a>Have fun ^_^</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1-problem"><span class="toc-nav-number">1.</span> <span class="toc-nav-text"><a href="#1-Problem" class="headerlink" title="1. Problem"></a>1. Problem</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2-online-resource-allocation"><span class="toc-nav-number">2.</span> <span class="toc-nav-text"><a href="#2-Online-resource-allocation" class="headerlink" title="2. Online resource allocation"></a>2. Online resource allocation</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#3-theorem-for-strategy-proof"><span class="toc-nav-number">3.</span> <span class="toc-nav-text"><a href="#3-Theorem-for-Strategy-proof" class="headerlink" title="3. Theorem for Strategy-proof"></a>3. Theorem for Strategy-proof</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#4-rl"><span class="toc-nav-number">4.</span> <span class="toc-nav-text"><a href="#4-RL" class="headerlink" title="4. RL"></a>4. RL</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#5-strategy-proof-rl"><span class="toc-nav-number">5.</span> <span class="toc-nav-text"><a href="#5-Strategy-proof-RL" class="headerlink" title="5. Strategy-proof RL"></a>5. Strategy-proof RL</span></a></li></ol>
         
         </div>
       </aside>
@@ -320,7 +372,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                          <a class="tag" href="/tags/#RL" title="RL">RL</a>
                         
                     </div>
                 </section>

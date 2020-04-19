@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/article/Strategyproof-Reinforcement-Learning-for-Online-Resource-Allocation/</loc>
+        <lastmod>2020-04-17T13:23:42.227Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/article/Pointer-Networks/</loc>
+        <lastmod>2020-04-01T06:51:26.521Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/article/Submodular-Function/</loc>
         <lastmod>2020-03-22T03:37:15.831Z</lastmod>
         <changefreq>weekly</changefreq>
