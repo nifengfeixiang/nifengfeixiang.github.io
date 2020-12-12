@@ -142,13 +142,6 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -157,6 +150,13 @@
                         
                         <li>
                             <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -216,6 +216,41 @@
 
 <font color="ED7306"></font>
 
+<p>pointer network</p>
+<h4 id="neural-combinatorial-optimization-with-reinforcement-learning"><a href="#Neural-Combinatorial-Optimization-with-Reinforcement-Learning" class="headerlink" title="Neural Combinatorial Optimization with Reinforcement    Learning"></a>Neural Combinatorial Optimization with Reinforcement    Learning</h4><h5 id="1-tsp-problem"><a href="#1-TSP-Problem" class="headerlink" title="1 TSP Problem"></a>1 TSP Problem</h5><p>利用强化学习和pointer network解决TSP问题。首先是对TSP描述：<script type="math/tex">s=\left\{\mathbf{x}_{i}\right\}_{i=1}^{n}</script>表示n个地点，同时每个地点用$\mathbf{x}_{i}$二维坐标表示。那么对于一个路径或者是地点的一个排列序列$\pi$，这个路径的长度可以表示为：</p>
+<script type="math/tex; mode=display">
+L(\pi \mid s)=\left\|\mathbf{x}_{\pi(n)}-\mathbf{x}_{\pi(1)}\right\|_{2}+\sum_{i=1}^{n-1}\left\|\mathbf{x}_{\pi(i)}-\mathbf{x}_{\pi(i+1)}\right\|_{2}</script><p>我们想要学习到一个随机策略（stochastic policy）$p(\pi|s)$，给出一个地点集合$s$，输出对一个序列或是路径的概率：长路径概率低，段路径概率高。</p>
+<p>如果使用chain rule的方式，通过排序，输入一个sequence，输出一个sequence，这样的方式存在两个问题：一是不能够泛化，二是需要groundtruth来训练。因此采用pointer network来作为策略模型（policy model）。</p>
+<h5 id="2-architecture"><a href="#2-Architecture" class="headerlink" title="2 Architecture"></a>2 Architecture</h5><p>Pointer network由两个recurrent neural network（RNN）组成，encoder和decoder，每个都由LSTM组成。</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkj0qtz26oj30xo0gg75s.jpg" style="zoom:50%;"></p>
+<p>Encoder网络读取序列$s$，每次读取一个地点，并将其转化成一个潜在记忆状态的顺序（sequence of latent memory states）表示为：$\{enc_i\}_{i=1}^{n}$；需要注意，读取的第$i$个地点$\textbf{x}_i$不在是二维坐标，二是一个embedding之后的d-维向量（通过一个所有点共用的线性的转化，linear transform，<font color="009393">通常有什么样的线性转化？</font>）</p>
+<p>Decoder网络维持一个潜在记忆状态的顺序表示为：$\{dnc_i\}_{i=1}^{n}$；在每一个步骤输出下一个地点的分布，在选择完一个地点后，输入给下一步，再来决定下下个访问地点。需要注意的是，第一个输入$<g>$是一个d-维，需要我们网络来训练的参数。</g></p>
+<p>Attention function（<font color="009393">这个函数的作用是什么？</font>可以参考：<a href="https://zhuanlan.zhihu.com/p/57672079）：此时query" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/57672079）：此时query</a> $q=dec_i$，同时对应的reference（Key？）是$ref=\{enc_1,enc_2,…,enc_k\}$。预测一个distribution $A(ref,q)$，表示与$r_i$的相关性程度。</p>
+<blockquote>
+<p>Attention: 就是一种权重参数的分配机制，目标是协助模型捕捉重要信息。具体一点就是，给定一组<key,value>，以及一个目标（查询）向量query，attention机制就是通过计算query与每一组key的相似性，得到每个key的权重系数，再通过对value加权求和，得到最终attention数值。</key,value></p>
+<script type="math/tex; mode=display">
+Attention(query,source)=\sum_i^{L_x}Similarity(query,Key)*Value</script></blockquote>
+<h5 id="3-optimization-with-policy-gradient"><a href="#3-Optimization-with-Policy-Gradient" class="headerlink" title="3 Optimization with Policy Gradient"></a>3 Optimization with Policy Gradient</h5><h6 id="31-optimization"><a href="#3-1-Optimization" class="headerlink" title="3.1 Optimization"></a>3.1 Optimization</h6><p><strong>那么接下来如何训练pointer network？</strong>在这个地方使用model-free policy-based（<font color="009393">model-free和model-based</font>） RL方法来优化pointer network的参数$\theta$；我们的训练目标是，给定序列$s$，最小化期望路径长度：</p>
+<script type="math/tex; mode=display">
+J(\boldsymbol{\theta} \mid s)=\mathbb{E}_{\pi \sim p_{\theta}(. \mid s)} L(\pi \mid s)</script><p>在训练的过程中，为了能够具有泛化性，考虑序列点的图是服从分布$\mathcal{S}$，因此总的优化目标包含图的分布信息：</p>
+<script type="math/tex; mode=display">
+J(\boldsymbol{\theta})=\mathbb{E}_{s \sim \mathcal{S}} J(\boldsymbol{\theta} \mid s)</script><p>我们借助策略梯度policy gradient方法和随机梯度stochastic gradient下降来优化参数；（3）式子的梯度使用REINFORCE algorithm (Williams, 1992) <font color="ED7306">（这个不是很理解，后面补一下）</font>表示为：</p>
+<script type="math/tex; mode=display">
+\nabla_{\theta} J(\theta \mid s)=\mathbb{E}_{\pi \sim p_{\theta}(. \mid s)}\left[(L(\pi \mid s)-b(s)) \nabla_{\theta} \log p_{\theta}(\pi \mid s)\right]</script><p>其中$b(s)$表示不依赖$\pi$的基线函数，并估计预期的行程长度以减小梯度的方差。通过对图进行sample，假设采样了B个图，$s_1,s_2,…,s_B-\mathcal{B}$，则梯度（4）可以近似为：</p>
+<script type="math/tex; mode=display">
+\nabla_{\theta} J(\theta) \approx \frac{1}{B} \sum_{i=1}^{B}\left(L\left(\pi_{i} \mid s_{i}\right)-b\left(s_{i}\right)\right) \nabla_{\theta} \log p_{\theta}\left(\pi_{i} \mid s_{i}\right)</script><h6 id="32-baseline-critic"><a href="#3-2-Baseline-critic" class="headerlink" title="3.2 Baseline-critic"></a>3.2 Baseline-critic</h6><p>上面提到，找到一个合适baseline $b(s)$可以提高训练学习的效果，这里采用critic 网络，参数为$\theta_v$，来学习我们当前策略$p_\theta$下的期望路径长度。评论家接受了随机梯度下降训练，其均方误差目标介于其预测值$b_{\theta_v}(s)$与最新策略采样出来的一个实际长度之间，<font color="009393">（这个地方为什么是减L()，而不是J(\theta)，这个地方是从当前策略中sample出一个确定的路径）</font></p>
+<script type="math/tex; mode=display">
+\mathcal{L}\left(\theta_{v}\right)=\frac{1}{B} \sum_{i=1}^{B}\left\|b_{\theta_{v}}\left(s_{i}\right)-L\left(\pi_{i} \mid s_{i}\right)\right\|_{2}^{2}</script><p>Critic architecture：现在来解释critic的构造，主要包含有三个模块：一个LSTM encoder，一个LSTM process block，和一个2-layer ReLU网络decoder。LSTM encoder与pointer network类似结构，输入sequence $s$并将其转为latent memory states以及一个<font color="ED7306">隐藏状态hidden h</font>。然后是处理模块process block，处理块对隐藏状态h执行P个计算步骤。 每个处理步骤都通过glimpsing memory states状态来更新此隐藏状态h，并将瞥见功能的输出作为输入提供给下一个处理步骤。process block结束后，获得的隐藏state被解码为一个baseline的预测结果。</p>
+<blockquote>
+<p>LSTM: <a href="https://zhuanlan.zhihu.com/p/32085405" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/32085405</a></p>
+</blockquote>
+<h6 id="32-search-strategy"><a href="#3-2-Search-strategy" class="headerlink" title="3.2 Search strategy"></a>3.2 Search strategy</h6><p>由于评估游程长度的成本很低，我们的TSP代理可以很容易地在推理时通过考虑每个图形的多个候选方案并选择最佳方案来模拟搜索过程。推理过程类似于求解器如何在大量可行解的集合上进行搜索。在本文中，我们考虑两种搜索策略，详述如下，我们将其称为采样sample和主动搜索active search。</p>
+<p>（1）sampling：从训练的随机策略$p_\theta(\cdot|s)$中随机采样几个，找到其中的最短路径。当从我们的<font color="009393">非参数softmax</font>中取样时，用温度超参数控制取样游的多样性。</p>
+<blockquote>
+<p><strong>Softmax:</strong> 用于多分类中，它将多个神经元的输出，映射到（0,1）区间内，可以看成概率来理解，从而来进行多分类，假设我们有一个数组，V，Vi表示V中的第i个元素，那么这个元素的softmax值就是</p>
+<script type="math/tex; mode=display">
+S_{i}=\frac{e^{i}}{\sum_{j} e^{j}}</script></blockquote>
+<p>（2）Active search：有点没看懂\</p>
 
 
 
@@ -285,7 +320,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="nav">none</ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#neural-combinatorial-optimization-with-reinforcement-learning"><span class="toc-nav-number">1.</span> <span class="toc-nav-text"><a href="#Neural-Combinatorial-Optimization-with-Reinforcement-Learning" class="headerlink" title="Neural Combinatorial Optimization with Reinforcement    Learning"></a>Neural Combinatorial Optimization with Reinforcement    Learning</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#1-tsp-problem"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text"><a href="#1-TSP-Problem" class="headerlink" title="1 TSP Problem"></a>1 TSP Problem</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#2-architecture"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text"><a href="#2-Architecture" class="headerlink" title="2 Architecture"></a>2 Architecture</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#3-optimization-with-policy-gradient"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text"><a href="#3-Optimization-with-Policy-Gradient" class="headerlink" title="3 Optimization with Policy Gradient"></a>3 Optimization with Policy Gradient</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#31-optimization"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text"><a href="#3-1-Optimization" class="headerlink" title="3.1 Optimization"></a>3.1 Optimization</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#32-baseline-critic"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text"><a href="#3-2-Baseline-critic" class="headerlink" title="3.2 Baseline-critic"></a>3.2 Baseline-critic</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#32-search-strategy"><span class="toc-nav-number">1.3.3.</span> <span class="toc-nav-text"><a href="#3-2-Search-strategy" class="headerlink" title="3.2 Search strategy"></a>3.2 Search strategy</span></a></li></ol></li></ol></li></ol>
         
         </div>
       </aside>

@@ -8,8 +8,8 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/article/Strategyproof-Reinforcement-Learning-for-Online-Resource-Allocation/</loc>
-        <lastmod>2020-04-17T13:23:42.227Z</lastmod>
+        <loc>http://yoursite.com/article/Robust-Influence-Maximization/</loc>
+        <lastmod>2020-12-10T07:22:55.243Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -17,7 +17,15 @@
 
     <url>
         <loc>http://yoursite.com/article/Pointer-Networks/</loc>
-        <lastmod>2020-04-01T06:51:26.521Z</lastmod>
+        <lastmod>2020-11-11T01:54:27.094Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/article/Strategyproof-Reinforcement-Learning-for-Online-Resource-Allocation/</loc>
+        <lastmod>2020-04-17T13:23:42.227Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          Robust Influence Maximization - COOLA | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yoursite.com/article/Robust-Influence-Maximization/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#Submodular" title="Submodular">Submodular</a>
+                            
+                              <a class="tag" href="/tags/#Influence Maximization" title="Influence Maximization">Influence Maximization</a>
+                            
+                        </div>
+                        <h1>Robust Influence Maximization</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by Xiang Liu on
+                            2020-12-07
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Xiang Liu</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+    
+                <font color="009393"></font>
+
+<font color="ED7306"></font>
+
+<h3 id="robust-influence-maximization"><a href="#Robust-Influence-Maximization" class="headerlink" title="Robust Influence Maximization"></a>Robust Influence Maximization</h3><h4 id="1-background"><a href="#1-Background" class="headerlink" title="1. Background"></a>1. Background</h4><p>Influence Maximization (IM)问题描述的是：在社交网络中，通过激活有限的网络节点来最大化影响力（influence），当激活一个节点时，该节点与其他节点的边上含有影响概率（通常有两种模型：independent cascade和linear threshold model）。</p>
+<p>在传统的IM优化问题中，假设edge上influence probability是已知的，但是在很多情形下这个假设是不成立的；因此，有一些工作提出学习方法来获得影响概率，但是这些学习方法无法提供真实具体的概率，很多情形下只能给出概率区间范围的估计；显然，无法确定的influence probability给IM优化问题带来了难点，不同的概率，得到的最终优化的结果可能差别很大。基于上述原因，受到robust optimization<sup><a href="#fn_1" id="reffn_1">1</a></sup>的启发，<font color="ED7306">首次研究在不定概率情形下的robust influence maximization （RIM）</font>。</p>
+<h4 id="2-model-amp-method"><a href="#2-Model-amp-Method" class="headerlink" title="2. Model &amp; Method"></a>2. Model &amp; Method</h4><h5 id="21-robust-influence-maximization-kdd20162"><a href="#2-1-Robust-Influence-Maximization-KDD20162" class="headerlink" title="2.1 Robust Influence Maximization-KDD20162"></a>2.1 <font color="009393">Robust Influence Maximization-KDD2016</font><sup><a href="#fn_2" id="reffn_2">2</a></sup></h5><h6 id="211-model"><a href="#2-1-1-Model" class="headerlink" title="2.1.1 Model"></a>2.1.1 Model</h6><p>考虑概率的可能区间为$\Theta$（<strong><em>连续空间</em></strong>），对于seed set $S$和概率参数$\theta $，得到的influence为：$\sigma_{\theta}(S)$；对于边$e\in E$，它的影响概率为$p_\theta$；概率的取值区间（confidence interval）为$[l_e,r_e]$；所以有$\Theta=\times_{e \in E}\left[l_{e}, r_{e}\right]$；那么当所有的边概率都取值最大或是最小时有：$\operatorname{let} \theta^{-}(\Theta)=\left(l_{e}\right)_{e \in E}, \theta^{+}(\Theta)=\left(r_{e}\right)_{e \in E}$；</p>
+<p>那么此时对该集合$S$的robust ratio为：</p>
+<script type="math/tex; mode=display">
+g(\Theta, S)=\min _{\theta \in \Theta} \frac{\sigma_{\theta}(S)}{\sigma_{\theta}\left(S_{\theta}^{*}\right)}</script><p>其中$S_{\theta}^*$为在该参数下的获得最大influence的最优seed set；令<script type="math/tex">S_{\theta}^g</script>表示在该参数下采用贪心策略得到的influence总和；优化目标为最大化robust ratio：</p>
+<script type="math/tex; mode=display">
+\underset{S \subseteq V,|S|=k}{\arg \max } g(\Theta, S)=\underset{S \subseteq V,|S|=k}{\arg \max } \min _{\theta \in \Theta} \frac{\sigma_{\theta}(S)}{\sigma_{\theta}\left(S_{\theta}^{*}\right)}</script><h6 id="212-method"><a href="#2-1-2-Method" class="headerlink" title="2.1.2 Method"></a>2.1.2 Method</h6><p>首先介绍传统Greedy方法解决传统子模函数优化问题：</p>
+<blockquote>
+<p>Greedy Submodular: 贪心选择边际效益最大的item；$Greedy(G,k,\theta)$;</p>
+</blockquote>
+<p>解决robust submodular的算法是：</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1glfj2el29qj30xs0bwwgu.jpg" style="zoom:50%;"></p>
+<p>主要思想是：以最小概率$\theta^-$和最大概率$\theta^+$来采用贪心的方法获取近似的最大influence；通过这个上下界的概率，可以得到优化目标的performance；值得注意的是这里一个关键点是：对于固定$S$，$\sigma_{\theta}(S)$对于参数$\theta$是单调增；performance的bound为：</p>
+<script type="math/tex; mode=display">
+g(\Theta, S) \geq \min _{\theta \in \Theta} \frac{\sigma_{\theta}(S)}{\sigma_{\theta^{+}}\left(S_{\theta^{+}}^{g}\right)}\left(1-\frac{1}{e}\right)=\frac{\sigma_{\theta^{-}}(S)}{\sigma_{\theta^{+}}\left(S_{\theta^{+}}^{g}\right)}\left(1-\frac{1}{e}\right)</script><p>即对于任意的$S$，都满足$g(\Theta, S) \geq \frac{\sigma_{\theta^{-}}(S)}{\sigma_{\theta^{+}}\left(S_{\theta^{+}}^{g}\right)}\left(1-\frac{1}{e}\right)$,可以得到：（<font color="ED7306">称之为solution-dependent bound</font>）</p>
+<script type="math/tex; mode=display">
+g\left(\Theta, S_{\Theta}^{\mathrm{LU}}\right) \geq \frac{\sigma_{\theta-}\left(S_{\Theta}^{\mathrm{LU}}\right)}{\sigma_{\theta^{+}}\left(S_{\theta+}^{g}\right)}\left(1-\frac{1}{e}\right)=\alpha(\Theta)\left(1-\frac{1}{e}\right)</script><blockquote>
+<font color="red">但是这样的一个performance bound没有与optimal solution的比较，是一个比较弱的performance bound；文章中是通过一个example来解释这个bound的有效性：</font>
+
+</blockquote>
+<font color="ED7306">Thinking：</font>
+
+<h6 id="213-sampling-for-improvement"><a href="#2-1-3-Sampling-for-Improvement" class="headerlink" title="2.1.3 Sampling for Improvement"></a>2.1.3 Sampling for Improvement</h6><p>通过一些hardness results，我们发现在一些图上，算法可能会得到一个比较差的近似；因此会有一个问题是：给定$\Theta$区间，我们是否能通过有效的sample能更精准的缩小$\Theta$来提升我们的算法性能？称之为：sampling for improving RIM。</p>
+<p>（1）Uniform Sampling：<font color="red">Main idea：主要是下面两个引理的使用，首先由上面的bound发现当$\theta^+,\theta^-$估计更加准确，这里的思路是让他们的比值能有一个bound；然后发现若是需要比值bound，那么此时需要两者差值能有一个bound，即只要差值存在bound（引理一）即可；</font></p>
+<p>首先介绍如下引理一：</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1glfl8ccvxuj313u098wgc.jpg" style="zoom: 40%;"></p>
+<font color="ED7306">这个引理说明，当两个概率参数$\theta_1,\theta_2$差值存在一个bound时</font>，对应固定集合$S$的influence值的差值也存在一个上限，这其实就指引我们对边的概率进行离散化，进行一定的离散采样就可以评估优化目标；
+
+<font color="ED7306">第二个引理是说，当存在$r_e\le (1+\lambda) l_{e}$时，有$\frac{\sigma_{\theta^{+}}(S)}{\sigma_{\theta^{-}}(S)} \leq(1+\lambda)^{n}$；根据乘法形式的$l_e$和$r_e$的关系，可以对影响力传播的比例进行约束。</font>
+
+<p>通过上面两个引理可以得到我们sample的过程：</p>
+<ol>
+<li><p>我们希望$\frac{\sigma_{\theta^{+}}(S)}{\sigma_{\theta^{-}}(S)}$存在有个比例关系，可以由引理中的差值，即只要$\theta^+,\theta^-$存在一定的距离关系即得到：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{\sigma_{\theta^{-}}(S)}{\sigma_{\theta^{+}}(S)} & \geq 1-\frac{\sigma_{\theta+}(S)-\sigma_{\theta^{-}}(S)}{\sigma_{\theta^{+}}(S)} \\
+& \geq 1-\frac{m n \cdot \delta}{k}, if \ \delta=\frac{k \epsilon}{m n} \\
+&=1-\epsilon
+\end{aligned}</script><p>所以，这样可以保证一个$(1-\epsilon)(1-\frac{1}{e})$的solution-dependent界；那么如何保证真实值在新的长度为$\delta=\frac{k \epsilon}{m n}$的$\theta$区间呢？可以采用如下的sample方法；</p>
+</li>
+<li><p>对每条边$e$采样$t=\frac{2 m^{2} n^{2} \ln (2 m / \gamma)}{k^{2} \epsilon^{2}}$次；$x_e^1,x_e^2,…,x_e^t$</p>
+</li>
+</ol>
+<blockquote>
+<p>由chernoff-hoeffding不等式<sup><a href="#fn_3" id="reffn_3">3</a></sup>: </p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1glhd99tsmdj30tu0hsmzd.jpg" style="zoom:33%;"></p>
+<p>Chernoff bound:</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwly1glhm3uqfjdj312s0nq77m.jpg" style="zoom: 50%;"></p>
+</blockquote>
+<p>可以得到：</p>
+<script type="math/tex; mode=display">
+\operatorname{Pr}\left[\left|\frac{1}{t} \sum_{i=1}^{t} x_{e}^{i}-p_{e}\right|>\frac{k \epsilon}{2 m n}\right] \leq 2 \exp \left(-\frac{k^{2} \epsilon^{2}}{2 m^{2} n^{2}} \cdot t\right) \leq \frac{\gamma}{m}</script><p>那么对于所有的边，因为边具有独立性，因此满足联合bound：</p>
+<script type="math/tex; mode=display">
+\operatorname{Pr}\left[\forall e \in E,\left|\frac{1}{t} \sum_{i=1}^{t} x_{e}^{i}-p_{e}\right|>\frac{k \epsilon}{2 m n}\right] \leq \gamma</script><p>因此，当我们对每个边进行t次采样，那么真实值$p_e$在$[\frac{1}{t} \sum_{i=1}^{t} x_{e}^{i}-\frac{k \epsilon}{2 m n},\frac{1}{t} \sum_{i=1}^{t} x_{e}^{i}+\frac{k \epsilon}{2 m n}]$的概率为$1-\gamma$。</p>
+<p>(2) Adaptive Sampling：总体思想为，上面统一sample，每条边的$l_e,r_e$的区间大小相同，且sample的数量相同，为了让一些重要的节点更准确，会动态的增加sample数量；如初始化一个seed set $S$，用IC的传播，当某些节点被对被激活的点的边在此sample一次，然后更新sample样例集合；通过更新后的集合再次选择seed set $S$；</p>
+<h5 id="22-robust-influence-maximization-for-hyperparametric-models-icml2019"><a href="#2-2-Robust-Influence-Maximization-for-Hyperparametric-Models-ICML2019" class="headerlink" title="2.2 Robust Influence Maximization for Hyperparametric Models-ICML2019"></a>2.2 <font color="009393">Robust Influence Maximization for Hyperparametric Models-ICML2019</font></h5><p>这篇文章从另一个角度来思考robust influence maximization问题；在上面的模型中，假设边的影响概率是在一个估计的区间内，本文中认为影响概率可能是一个函数，该函数与边上两个节点的特征向量有关，因此需要找到一组合适函数参数$\theta$；</p>
+<font color="009393"></font>
+
+<font color="ED7306"></font>
+
+<h6 id="221-model"><a href="#2-2-1-Model" class="headerlink" title="2.2.1 Model"></a>2.2.1 Model</h6><p>每条边$e=(u,v)$有一个特征向量$x_e\in X\subseteq [-1,1]^d$，这条边上的影响概率与特征有关，同时有一个全局参数$\theta \in \Theta \subseteq[-B, B]^{d}$来决定对应的影响概率；$p_e=H(\theta,x_e)$；使用标准的超参数模型：<font color="ED7306">Generalized Linear Models (GLM)</font>;</p>
+<script type="math/tex; mode=display">
+H\left(\theta, x_{e}\right)=h\left(\theta^{\top} x_{e}\right)+\xi_{e}</script><p>给定超参数space $\Theta$,可能的传播概率集合是：</p>
+<script type="math/tex; mode=display">
+\mathcal{H}:=\left\{\left\{H\left(\theta, x_{e}\right)\right\}_{e \in E}: \theta \in \Theta\right\}</script><p>因此，此时的robust influence maximization为：</p>
+<script type="math/tex; mode=display">
+\min _{\theta \in \Theta} f_{\theta}(\hat{S}) \geq \alpha \cdot \max _{S:|S| \leq k} \min _{\theta \in \Theta} f_{\theta}(S)</script><font color="ED7306">显然此时的优化空间是连续的，而且这里没有上节中的概率上下界，那么该如何将这个空间离散化呢？</font>
+
+<h6 id="222-method"><a href="#2-2-2-Method" class="headerlink" title="2.2.2 Method"></a>2.2.2 Method</h6><p>首先可以发现线性超参数模型具有<font color="ED7306">Lipschizness</font>特征；</p>
+<blockquote>
+<p>L称为Lipschitz常数。利普希茨连续条件（Lipschitz continuity）是以德国数学家鲁道夫·利普希茨命名，是一个比一致连续更强的光滑性条件。直观上，利普希茨连续函数限制了函数改变的速度，符合利普希茨条件的函数的斜率，必小于一个称为利普希茨常数的实数（该常数依函数而定）。</p>
+<p>在微分方程理论中，利普希茨条件是初值条件下解的存在唯一性定理中的一个核心条件。 利普希茨条件的一个特殊形式压缩映射，被应用在巴拿赫不动点定理中。</p>
+<p>一条曲线上任意两点连线的斜率的绝对值都有小于某一个数。 表达式为存在 数L使得$|F(X)-F(Y)| &lt;= L*|X-Y|, \forall X, Y.$</p>
+</blockquote>
+<p>因此我们有：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\left|p_{e}-p_{e}^{\prime}\right| &=\left|H\left(\theta, x_{e}\right)-H\left(\theta^{\prime}, x_{e}\right)\right| \\
+&=\left|h\left(\theta^{\top} x_{e}\right)-h\left(\theta^{\top} x_{e}\right)\right| \leq\left\|\theta-\theta^{\prime}\right\|_{1}
+\end{aligned}</script><p>这意味着，两个参数$\theta,\theta’$所带来的概率影响是有界的，那么就可以发现，不需要考虑所有的无限可能的参数$\theta$，只需要离散的选取一些参数，剩余的参数与选取的参数之间总是存在bound关系；</p>
+<p>所以$\left|\theta-\theta^{\prime}\right|_{1} \leq \epsilon \text { implies }\left|p_{e}-p_{e}^{\prime}\right| \leq \epsilon$;即可以得到：</p>
+<script type="math/tex; mode=display">
+|f_\theta-f_{\theta'}|\le nm\cdot \left\|\theta-\theta^{\prime}\right\|_{1}</script><p>那么对于这样一个d-维度单边取值在$[-B,B]$的超立方体空间$\Theta $,用多少个半径为$\epsilon$的球cover呢？答案是：$r=\left(\frac{2 B \cdot d}{\epsilon}\right)^{d}$；那么我们此时从这个立方体中随机抽取$s$个点，那么p_A(某个球内没有没sample到点)的概率上界为：令p_B表示球j内没有sample到点</p>
+<script type="math/tex; mode=display">
+p_A\le \sum_{j\le s}P_B=r\cdot (1-\frac{1}{r})^s</script><p>那么从这个立方体中随机抽取$s$个点，保证每个球内都有一个点的概率为$1-p_A$；若我们希望这个概率的下界为$1-\delta$，则此时要sample的数$s$满足：</p>
+<script type="math/tex; mode=display">
+1-\delta=1-r\cdot (1-\frac{1}{r})^s, s\in \mathcal{O}\left(d\left(\frac{B d}{\epsilon}\right)^{d} \log \frac{B d}{\epsilon \delta}\right)</script><p>此时，我们只需要通过采样$s$次即可将连续的空间优化问题转为离散空间问题；具体算法为：</p>
+<ol>
+<li><p>从参数空间$\Theta$中采样$l=s$个point，组成$f_l$个需要优化的子模函数；</p>
+</li>
+<li><p>给每个函数$f_l$初始化$t=1$一个$w_1[l]$的相同权重；<font color="ED7306">通过Multiplicative Weight Updates (MWU)方法来不断调整权重达到优化max-min的目标；</font></p>
+<ul>
+<li><p>通过greedy的方法优化$\left(\sum_{i=1}^{l} w_{t}[i] f_{i}\right)$,得到当前的输出集合$S_t$；</p>
+</li>
+<li><p>针对每个函数$f_l$调整他的权重，<font color="ED7306">原则是，当前函数值大的权重调小，这样可以在下一轮降低函数值，以此达到max-min的优化目标；如下所示，历史函数值总和越大，权重越小；</font></p>
+<script type="math/tex; mode=display">
+w_{t}[i] \propto \exp \left\{-\eta \sum_{\tau=1}^{t-1} f_{i}\left(S_{\tau}\right)\right\}</script><font color="red">这里的迭代时间$T$和$-\eta$与最终的bound相关；</font>
+
+<blockquote>
+<p><img src="/Users/xiaozei/coola/source/_posts/image-20201210151803088.png" alt="image-20201210151803088" style="zoom:50%;"></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="3-conclusion"><a href="#3-Conclusion" class="headerlink" title="3. Conclusion"></a>3. Conclusion</h4><blockquote id="fn_1">
+<sup>1</sup>. <a href="https://www2.isye.gatech.edu/~nemirovs/MP_RO_2002.pdf" target="_blank" rel="noopener">https://www2.isye.gatech.edu/~nemirovs/MP_RO_2002.pdf</a> A. Ben-Tal and A. Nemirovski. Robust optimization–methodology and applications.<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_2">
+<sup>2</sup>. Robust Influence Maximization-2016-KDD<a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_3">
+<sup>3</sup>. <a href="https://zhuanlan.zhihu.com/p/106840151" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/106840151</a> 大数定律以及相关概率定理；<a href="#reffn_3" title="Jump back to footnote [3] in the text."> &#8617;</a>
+</blockquote>
+
+
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/article/Strategyproof-Reinforcement-Learning-for-Online-Resource-Allocation/" data-toggle="tooltip" data-placement="top" title="Strategyproof Reinforcement Learning for Online Resource Allocation">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+    
+                <br>
+    
+                <!--打赏-->
+                
+                <!--打赏-->
+    
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+    
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+    
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+    
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+    
+                
+    
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#robust-influence-maximization"><span class="toc-nav-number">1.</span> <span class="toc-nav-text"><a href="#Robust-Influence-Maximization" class="headerlink" title="Robust Influence Maximization"></a>Robust Influence Maximization</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1-background"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text"><a href="#1-Background" class="headerlink" title="1. Background"></a>1. Background</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2-model-amp-method"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text"><a href="#2-Model-amp-Method" class="headerlink" title="2. Model &amp; Method"></a>2. Model &amp; Method</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#21-robust-influence-maximization-kdd20162"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text"><a href="#2-1-Robust-Influence-Maximization-KDD20162" class="headerlink" title="2.1 Robust Influence Maximization-KDD20162"></a>2.1 <font color="009393">Robust Influence Maximization-KDD2016</font><sup><a href="#fn_2" id="reffn_2">2</a></sup></span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#211-model"><span class="toc-nav-number">1.2.1.1.</span> <span class="toc-nav-text"><a href="#2-1-1-Model" class="headerlink" title="2.1.1 Model"></a>2.1.1 Model</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#212-method"><span class="toc-nav-number">1.2.1.2.</span> <span class="toc-nav-text"><a href="#2-1-2-Method" class="headerlink" title="2.1.2 Method"></a>2.1.2 Method</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#213-sampling-for-improvement"><span class="toc-nav-number">1.2.1.3.</span> <span class="toc-nav-text"><a href="#2-1-3-Sampling-for-Improvement" class="headerlink" title="2.1.3 Sampling for Improvement"></a>2.1.3 Sampling for Improvement</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#22-robust-influence-maximization-for-hyperparametric-models-icml2019"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text"><a href="#2-2-Robust-Influence-Maximization-for-Hyperparametric-Models-ICML2019" class="headerlink" title="2.2 Robust Influence Maximization for Hyperparametric Models-ICML2019"></a>2.2 <font color="009393">Robust Influence Maximization for Hyperparametric Models-ICML2019</font></span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#221-model"><span class="toc-nav-number">1.2.2.1.</span> <span class="toc-nav-text"><a href="#2-2-1-Model" class="headerlink" title="2.2.1 Model"></a>2.2.1 Model</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#222-method"><span class="toc-nav-number">1.2.2.2.</span> <span class="toc-nav-text"><a href="#2-2-2-Method" class="headerlink" title="2.2.2 Method"></a>2.2.2 Method</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#3-conclusion"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text"><a href="#3-Conclusion" class="headerlink" title="3. Conclusion"></a>3. Conclusion</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+    
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Submodular" title="Submodular">Submodular</a>
+                        
+                          <a class="tag" href="/tags/#Influence Maximization" title="Influence Maximization">Influence Maximization</a>
+                        
+                    </div>
+                </section>
+                
+    
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+    
+                    
+                        <li><a href="http://blog.csdn.net/huwh_" target="_blank">CSDN Blog</a></li>
+                    
+                        <li><a href="http://dockone.io/people/胡伟煌" target="_blank">DockOne</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/nifengfeixiang">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Xiang Liu 2020 
+                    <br>
+                    Theme by <a href="http://beantech.org">BeanTech</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
+</body>
+
+</html>
