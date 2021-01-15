@@ -8,14 +8,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/article/Personal-Page/</loc>
-        <lastmod>2021-01-15T07:11:22.916Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://yoursite.com/article/Robust-Influence-Maximization/</loc>
         <lastmod>2020-12-13T12:33:50.883Z</lastmod>
         <changefreq>weekly</changefreq>
