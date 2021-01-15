@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          在Matriod限制下的预算可行性机制 - COOLA | Blog
+          Bandit &amp; Fairness - COOLA | Blog
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/article/在Matriod限制下的预算可行性机制/">
+    <link rel="canonical" href="http://yoursite.com/article/Bandit-Fairness/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -88,16 +88,16 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Budget Feasibility" title="Budget Feasibility">Budget Feasibility</a>
+                              <a class="tag" href="/tags/#RL" title="RL">RL</a>
                             
-                              <a class="tag" href="/tags/#Matriod" title="Matriod">Matriod</a>
+                              <a class="tag" href="/tags/#Bandit" title="Bandit">Bandit</a>
                             
                         </div>
-                        <h1>在Matriod限制下的预算可行性机制</h1>
+                        <h1>Bandit &amp; Fairness</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Xiang Liu on
-                            2020-03-20
+                            2020-12-12
                         </span>
                     </div>
                 
@@ -218,40 +218,40 @@
 
 <font color="ED7306"></font>
 
-<h4 id="budget-feasible-mechanism-on-matroids"><a href="#Budget-Feasible-Mechanism-on-Matroids" class="headerlink" title="Budget Feasible Mechanism on Matroids"></a>Budget Feasible Mechanism on Matroids</h4><h5 id="1-background"><a href="#1-Background" class="headerlink" title="1. Background"></a>1. Background</h5><p>本文主要是基于拟阵设定情形下的预算可行性机制的设计；拟阵通常是由一个二元组来表示$\mathcal{M}=(E,\mathcal{I})$，$E$表示所有元素element的全集，而$\mathcal I\subseteq 2^E$是由$E$的子集组成的集族，对于$I\in \mathcal I$称之为独立集（independent set）；拟阵有两种性质：</p>
+<h3 id="bandit-amp-fairness"><a href="#Bandit-amp-Fairness" class="headerlink" title="Bandit &amp; Fairness"></a>Bandit &amp; Fairness</h3><h4 id="1-multi-armed-bandit"><a href="#1-Multi-Armed-Bandit" class="headerlink" title="1. Multi-Armed Bandit"></a>1. Multi-Armed Bandit</h4><p>在基本的MAB（多臂老虎机）设置中，有n个手臂，每个手臂都与一个固定但未知的奖励概率分布相关联（。在每个时间步骤t，一个代理（agent）拉动一个手臂，并获得一个独立于任何先前行动的奖励，并遵循所选手臂的概率分布，独立于先前的行动。代理人的目标是在所有时间步中使收集的奖励最大化。</p>
+<p>MAB的泛化是情境多臂老虎机contextual multi-armed bandit(CMAB)问题，代理观察到一个d维情境，与观察到的所玩臂的奖励分布一起使用，以选择一个新的臂。在CMAB问题中，代理学习上下文和奖励之间的关系，并选择最佳的臂。如在$t$时刻观察到arm $a$的一个特征向量为$x_{t,a}$，那么我们认为这个臂的reward与该特征向量相关，如$r_{t,a}=x_{t,a}\cdot \theta^*$。</p>
+<h4 id="2-group-fairness"><a href="#2-Group-Fairness" class="headerlink" title="2. Group Fairness"></a>2. Group Fairness</h4><p>但是很多在研究老虎机的工作会忽略公平性的问题；一个motivation是：作为贯穿本文的一个例子，想象一下银行或贷款人在小额贷款网站上的代理职位。在这里，代理必须依次挑选贷款进行融资。在许多情况下，比如小额贷款网站Kiva，a用户在登录时就会看到一系列潜在的贷款。每一笔贷款，即臂，都有一个上下文，其中包括申请人的属性，包括个人陈述、还款历史、商业计划和其他与贷款相关的数据。贷款也可以被分割成m个敏感属性的集合，例如位置、种族或性别。在最简单的情况下，假设我们在给定时间内有两个女性申请人和两个男性申请人在名单上。我们可能希望平衡代理人选择女性与男性的次数，即拉动这些手臂，或者我们可能希望根据男性或女性在总体人口中的比例来平衡选择他们的次数。</p>
+<p>当前bandit中fairness的研究现状：</p>
 <ul>
-<li>Hereditary property：如果$I\in \mathcal I$，且$j\subset I$，那么$j\in \mathcal I$；</li>
-<li>Exchange property：对于$I,J\in \mathcal I$，如果$|I|&lt;|J|$，那么存在一个元素$e\in J$满足$I\cup {e}\in J$；</li>
+<li>关注individual fairness，不是group fairness，极端的情况下可能每个arm代表一个group<sup><a href="#fn_1" id="reffn_1">1</a></sup>；<font color="red">所以疑问是，individual fairness的方法可不可以直接拓展到group fairness?</font></li>
+<li>Arm之间的fairness, 如考虑arm的reward distribution类似；或者是，要求arm被拉动的概率需要达到一个预先设置的值；</li>
+<li>MAB环境下的约束性推理方面也有重要工作。<font color="ED7306">一个相关的、也许是未来工作的有趣方向是关于受预算限制budget-constriained（不考虑公平性）的MAB的工作。一个可能性的工作是结合budget constraint以及 group fairness；</font></li>
 </ul>
-<p>现有一个buyer有$b$的预算，他想要在独立集中尽可能的购买比较多的value值，同时它的value function是一个线性加和的函数；假设元素$e$的权重为$w_e$，私有成本cost为$d_e$，用$bb(e)=\frac{d_e}{w_e}$表示buck-per-bang；</p>
-<h5 id="2-mechanism"><a href="#2-Mechanism" class="headerlink" title="2. Mechanism"></a>2. Mechanism</h5><p>（1）首先考虑单个拟阵问题，分析一下问题，介绍算法设计的intuition；主要包含两点：</p>
-<ul>
-<li>一是：假设现在有一个element，它的weight很大，任何一个solution如果不包含这个item的话，都会造成一个很差的解（相对于最优解而言）；<font color="009393">为了解决这样的问题，我们首先将最大weight的元素去掉，然后从剩下的element组成的独立集中找到一个解，然后将这个解的value总值与这个最大weight进行比较，最大的那一个作为最终的输出；</font></li>
-<li>二是：在budget feasible mechanism中，通常最终的payment都是采用proportional scheme，即对于每一单位weight都会有一个统一价格，而且会采用单调的选择方式，可以保证truthfulness，<font color="009393">因此我们可以从一个较高的价格开始，若是在这个价格下满足的元素总付费超过预算，就降低价格，知道满足budget限制为止；</font></li>
-</ul>
-<p>这两点就构成了算法，同时证明该算法保证4-competitive ratio；</p>
-<p>（2）现在考虑多个拟阵，Mechanism for matroid intersections；假设现在有$k$个拟阵$\mathcal M_1,…,\mathcal M_k$，将其转化为一个真实的拟阵，$\mathcal M=(E,\mathcal I)$，此时$\mathcal I=\cap_j \mathcal I_j$；需要说明的是想要得到$\mathcal I=\cap_j \mathcal I_j$也是一个NP-hard问题；所以我们先用一个多项式时间 blackbox APX得到一个$\alpha-$近似的结果，然后后续算法与单拟阵的算法类似；</p>
-<h5 id="3-xos-function"><a href="#3-XOS-function" class="headerlink" title="3. XOS function"></a>3. XOS function</h5><p>在budget feasible mechanism中，线性加和函数是最简单的value function，可以考虑更为general的函数，如子模函数，或者是XOS function；</p>
 <blockquote>
-<p>几种常见value function的关系：</p>
-<p>Additive function $\subset $ Separable piece-wise linear and concave (SPLC) $\subset$ OXS $\subset $Gross substitutes (GS) $\subset $ submodular $\subset $ XOS,</p>
-<p>Additive function $\subset $ Budget additive (BA)  $\subset $ submodular $\subseteq $ XOS $\subseteq$ sub-additive;</p>
+<p>Motivation for group-fairness: The motivating factor for group fairness is that one does not want to cause disparate impact, or the idea that groups should be treated differently based only on non-relevant aspects (Feldman et al., 2015). Indeed, discrim- ination in certain areas including housing, credit, and jobs is specifically forbidden in the US by the Civil Rights Act of 1965. It is specifically in these areas where bandit algorithms are deployed: advertising (where discrimination has been found), (Sweeney, 2013b) college admissions (Schumann et al., 2019a), and interviewing Schumann et al. (2019b).</p>
 </blockquote>
-<p>这里更进一步考虑XOS函数，对于一个value function $v(\cdot)$，如果他满足一下条件则为XOS函数：</p>
+<h4 id="3-model"><a href="#3-Model" class="headerlink" title="3. Model"></a>3. Model</h4><p>考虑CMAB场景，time step $t\in T$，context space为$\mathcal{X}=R^d$；arm集合为$A,|A|=n$；每一个arm有自己的context space $\mathcal{X}_i\subseteq \mathcal{X}$；</p>
+<p>考虑有m个group，所有的arm可以划分为这m个group：$P_{1} \cap \cdots \cap P_{m}=\emptyset \text { and } P_{1} \cup \cdots \cup P_{m}=A$；</p>
+<p>每个arm有一个自己的真实线性reward function：$f_{i}(x)=\beta_{i} \cdot x$；$\beta_i,x_{t,i}$分别表示arm的reward系数不可知需要学习，$x_{t,i}$表示在t时刻观察到的arm的上下文语境；</p>
+<p>时刻t拉动arm I的reward为：</p>
 <script type="math/tex; mode=display">
-v(S)=\max \{f_1(S),f_2(S),...,f_m(S)\}</script><p>这里的函数$f_k(\cdot)$是非负additive function。此时我们在选择element的时候不会在受到拟阵的约束，你可以选择任意全集$E$的子集。假设此时每个item的cost为$c_e$；</p>
-<p>算法的主要思路：</p>
-<ol>
-<li>以0.5的概率直接选择value最大的element，付给他$b$的费用；</li>
-<li>以0.5的概率执行一下操作：<font color="ED7306">类似于profit extract method；</font><ul>
-<li>将所有的item随机分到两个集合$T_1,T_2$；</li>
-<li>计算在$T_1$中在budget 限制下的最优解$OPT(T_1)$；计算此时的单价$t=\frac{v(OPT(T_1))}{\beta b}$；注意到这里与单价不同的是加了参数$\beta $；</li>
-<li>从集合$T_2$中找到一个集合满足：$S^*\in \arg\max_{S\subseteq T_2}\{v(S)-t\cdot c(S)\}$；<font color="ED7306">本质上是当以t的倒数为单价付费是，能够带来最大收益的物品集合；</font></li>
-<li>找到$v(\cdot )$中能够保证$f(S^<em>)=v(S^</em>)$的函数；</li>
-<li>RUN ADDITIVE-MECHANISM；</li>
+r_{t, i}=f_{i}\left(x_{t, i}\right)</script><p>用$i^*$表示该时刻最优的arm，那么此刻的regret是：</p>
+<script type="math/tex; mode=display">
+R(t)=f\left(x_{i^{*}, t}\right)-f\left(x_{a, t}\right)</script><h4 id="4method"><a href="#4-Method" class="headerlink" title="4.Method"></a>4.Method</h4><p>一个simple的方法是，在选择arm之前，uniform随机一个group，在group内用MAB的方法；换句话说，在每个组内我们选择最好的arm，划分为多个老虎机问题；<font color="red">文中解释这种方法不好的原因是，因为它忽略并消除了群体之间的互动和差异。感觉这一点解释的不够，就公平性目标来看，这是一个合理的方法？</font>所以需要重新定义在fairness下的regret；</p>
+<p>假设现在有两个group $P_1,P_2$；假设对group $P_1$存在偏见，那么此时拉动一个属于$P_1$的arm所带来的reward为：</p>
+<script type="math/tex; mode=display">
+r_{i, t}=\beta_{i} \cdot x_{i, t}+\mathbb{1}\left[i \in P_{1}\right] \psi_{P_{1}} \cdot x_{i, t}+\mathcal{N}(0,1)</script><p>$\psi_{P_{1}}$是一个跟偏见相关的参数，可以视为一种歧视权重调整，选得多的组则这个权重变小；</p>
+<blockquote>
+<p>如：在大学录取中出现。考虑到其他因素，特别是收入水平，一些大学由于有家教的存在，对富裕人群的SAT成绩权重较低，而对工薪阶层人群的权重却在增加</p>
+</blockquote>
+<p>过去的工作已经将每个手臂学到的向量 $\beta $ 比较为类似于调整这些偏差。虽然这在个人层面individual fairness是真实的，但我们对偏差的明确建模允许我们在群体group层面发现这些调整。</p>
+<p>具体的方法如下：</p>
+<ul>
+<li></li>
 </ul>
-</li>
-</ol>
+<blockquote id="fn_1">
+<sup>1</sup>. Joseph, M., Kearns, M., Morgenstern, J. H., and Roth, A.Fairness in learning: Classic and contextual bandits<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
 
 
 
@@ -260,12 +260,12 @@ v(S)=\max \{f_1(S),f_2(S),...,f_m(S)\}</script><p>这里的函数$f_k(\cdot)$是
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/Submodular-Function/" data-toggle="tooltip" data-placement="top" title="Submodular Function">&larr; Previous Post</a>
+                            <a href="/article/Personal-Page/" data-toggle="tooltip" data-placement="top" title="Personal Page - Xiang Liu">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/article/hexo-theme-huweihuang/" data-toggle="tooltip" data-placement="top" title="[Hexo] Theme HuWeihuang">Next Post &rarr;</a>
+                            <a href="/article/Robust-Influence-Maximization/" data-toggle="tooltip" data-placement="top" title="Robust Influence Maximization">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -321,7 +321,7 @@ v(S)=\max \{f_1(S),f_2(S),...,f_m(S)\}</script><p>这里的函数$f_k(\cdot)$是
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#budget-feasible-mechanism-on-matroids"><span class="toc-nav-number">1.</span> <span class="toc-nav-text"><a href="#Budget-Feasible-Mechanism-on-Matroids" class="headerlink" title="Budget Feasible Mechanism on Matroids"></a>Budget Feasible Mechanism on Matroids</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#1-background"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text"><a href="#1-Background" class="headerlink" title="1. Background"></a>1. Background</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#2-mechanism"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text"><a href="#2-Mechanism" class="headerlink" title="2. Mechanism"></a>2. Mechanism</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#3-xos-function"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text"><a href="#3-XOS-function" class="headerlink" title="3. XOS function"></a>3. XOS function</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#bandit-amp-fairness"><span class="toc-nav-number">1.</span> <span class="toc-nav-text"><a href="#Bandit-amp-Fairness" class="headerlink" title="Bandit &amp; Fairness"></a>Bandit &amp; Fairness</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1-multi-armed-bandit"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text"><a href="#1-Multi-Armed-Bandit" class="headerlink" title="1. Multi-Armed Bandit"></a>1. Multi-Armed Bandit</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2-group-fairness"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text"><a href="#2-Group-Fairness" class="headerlink" title="2. Group Fairness"></a>2. Group Fairness</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#3-model"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text"><a href="#3-Model" class="headerlink" title="3. Model"></a>3. Model</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#4method"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text"><a href="#4-Method" class="headerlink" title="4.Method"></a>4.Method</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -341,9 +341,9 @@ v(S)=\max \{f_1(S),f_2(S),...,f_m(S)\}</script><p>这里的函数$f_k(\cdot)$是
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Budget Feasibility" title="Budget Feasibility">Budget Feasibility</a>
+                          <a class="tag" href="/tags/#RL" title="RL">RL</a>
                         
-                          <a class="tag" href="/tags/#Matriod" title="Matriod">Matriod</a>
+                          <a class="tag" href="/tags/#Bandit" title="Bandit">Bandit</a>
                         
                     </div>
                 </section>

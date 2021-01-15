@@ -4,14 +4,28 @@
 
     <url>
         <loc>http://yoursite.com/tags/Influence-Maximization/</loc>
-        <lastmod>2020-12-10T07:22:55.243Z</lastmod>
+        <lastmod>2020-12-13T12:33:50.883Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://yoursite.com/tags/Submodular/</loc>
-        <lastmod>2020-12-10T07:22:55.243Z</lastmod>
+        <lastmod>2020-12-13T12:33:50.883Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/Bandit/</loc>
+        <lastmod>2020-12-12T12:25:32.648Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/RL/</loc>
+        <lastmod>2020-12-12T12:25:32.648Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -19,13 +33,6 @@
     <url>
         <loc>http://yoursite.com/tags/ML/</loc>
         <lastmod>2020-11-11T01:54:27.094Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/RL/</loc>
-        <lastmod>2020-04-17T13:23:42.227Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -247,34 +247,45 @@ g\left(\Theta, S_{\Theta}^{\mathrm{LU}}\right) \geq \frac{\sigma_{\theta-}\left(
 <p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1glfl8ccvxuj313u098wgc.jpg" style="zoom: 40%;"></p>
 <font color="ED7306">这个引理说明，当两个概率参数$\theta_1,\theta_2$差值存在一个bound时</font>，对应固定集合$S$的influence值的差值也存在一个上限，这其实就指引我们对边的概率进行离散化，进行一定的离散采样就可以评估优化目标；
 
-<font color="ED7306">第二个引理是说，当存在$r_e\le (1+\lambda) l_{e}$时，有$\frac{\sigma_{\theta^{+}}(S)}{\sigma_{\theta^{-}}(S)} \leq(1+\lambda)^{n}$；根据乘法形式的$l_e$和$r_e$的关系，可以对影响力传播的比例进行约束。</font>
+<font color="ED7306">第二个引理是说</font>，当存在$r_e\le (1+\lambda) l_{e}$时，有$\frac{\sigma_{\theta^{+}}(S)}{\sigma_{\theta^{-}}(S)} \leq(1+\lambda)^{n}$；根据乘法形式的$l_e$和$r_e$的关系，可以对影响力传播的比例进行约束。
 
-<p>通过上面两个引理可以得到我们sample的过程：</p>
-<ol>
-<li><p>我们希望$\frac{\sigma_{\theta^{+}}(S)}{\sigma_{\theta^{-}}(S)}$存在有个比例关系，可以由引理中的差值，即只要$\theta^+,\theta^-$存在一定的距离关系即得到：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\frac{\sigma_{\theta^{-}}(S)}{\sigma_{\theta^{+}}(S)} & \geq 1-\frac{\sigma_{\theta+}(S)-\sigma_{\theta^{-}}(S)}{\sigma_{\theta^{+}}(S)} \\
-& \geq 1-\frac{m n \cdot \delta}{k}, if \ \delta=\frac{k \epsilon}{m n} \\
-&=1-\epsilon
-\end{aligned}</script><p>所以，这样可以保证一个$(1-\epsilon)(1-\frac{1}{e})$的solution-dependent界；那么如何保证真实值在新的长度为$\delta=\frac{k \epsilon}{m n}$的$\theta$区间呢？可以采用如下的sample方法；</p>
-</li>
-<li><p>对每条边$e$采样$t=\frac{2 m^{2} n^{2} \ln (2 m / \gamma)}{k^{2} \epsilon^{2}}$次；$x_e^1,x_e^2,…,x_e^t$</p>
-</li>
-</ol>
-<blockquote>
-<p>由chernoff-hoeffding不等式<sup><a href="#fn_3" id="reffn_3">3</a></sup>: </p>
-<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1glhd99tsmdj30tu0hsmzd.jpg" style="zoom:33%;"></p>
-<p>Chernoff bound:</p>
-<p><img src="https://tva1.sinaimg.cn/large/0081Kckwly1glhm3uqfjdj312s0nq77m.jpg" style="zoom: 50%;"></p>
-</blockquote>
-<p>可以得到：</p>
-<script type="math/tex; mode=display">
-\operatorname{Pr}\left[\left|\frac{1}{t} \sum_{i=1}^{t} x_{e}^{i}-p_{e}\right|>\frac{k \epsilon}{2 m n}\right] \leq 2 \exp \left(-\frac{k^{2} \epsilon^{2}}{2 m^{2} n^{2}} \cdot t\right) \leq \frac{\gamma}{m}</script><p>那么对于所有的边，因为边具有独立性，因此满足联合bound：</p>
-<script type="math/tex; mode=display">
-\operatorname{Pr}\left[\forall e \in E,\left|\frac{1}{t} \sum_{i=1}^{t} x_{e}^{i}-p_{e}\right|>\frac{k \epsilon}{2 m n}\right] \leq \gamma</script><p>因此，当我们对每个边进行t次采样，那么真实值$p_e$在$[\frac{1}{t} \sum_{i=1}^{t} x_{e}^{i}-\frac{k \epsilon}{2 m n},\frac{1}{t} \sum_{i=1}^{t} x_{e}^{i}+\frac{k \epsilon}{2 m n}]$的概率为$1-\gamma$。</p>
-<p>(2) Adaptive Sampling：总体思想为，上面统一sample，每条边的$l_e,r_e$的区间大小相同，且sample的数量相同，为了让一些重要的节点更准确，会动态的增加sample数量；如初始化一个seed set $S$，用IC的传播，当某些节点被对被激活的点的边在此sample一次，然后更新sample样例集合；通过更新后的集合再次选择seed set $S$；</p>
-<h5 id="22-robust-influence-maximization-for-hyperparametric-models-icml2019"><a href="#2-2-Robust-Influence-Maximization-for-Hyperparametric-Models-ICML2019" class="headerlink" title="2.2 Robust Influence Maximization for Hyperparametric Models-ICML2019"></a>2.2 <font color="009393">Robust Influence Maximization for Hyperparametric Models-ICML2019</font></h5><p>这篇文章从另一个角度来思考robust influence maximization问题；在上面的模型中，假设边的影响概率是在一个估计的区间内，本文中认为影响概率可能是一个函数，该函数与边上两个节点的特征向量有关，因此需要找到一组合适函数参数$\theta$；</p>
+通过上面两个引理可以得到我们sample的过程：
+
+1. 我们希望$\frac{\sigma_{\theta^{+}}(S)}{\sigma_{\theta^{-}}(S)}$存在有个比例关系，可以由引理中的差值，即只要$\theta^+,\theta^-$存在一定的距离关系即得到：
+   $$
+   \begin{aligned}
+   \frac{\sigma_{\theta^{-}}(S)}{\sigma_{\theta^{+}}(S)} & \geq 1-\frac{\sigma_{\theta+}(S)-\sigma_{\theta^{-}}(S)}{\sigma_{\theta^{+}}(S)} \\
+   & \geq 1-\frac{m n \cdot \delta}{k}, if \ \delta=\frac{k \epsilon}{m n} \\
+   &=1-\epsilon
+   \end{aligned}
+   $$
+   所以，这样可以保证一个$(1-\epsilon)(1-\frac{1}{e})$的solution-dependent界；那么如何保证真实值在新的长度为$\delta=\frac{k \epsilon}{m n}$的$\theta$区间呢？可以采用如下的sample方法；
+
+2. 对每条边$e$采样$t=\frac{2 m^{2} n^{2} \ln (2 m / \gamma)}{k^{2} \epsilon^{2}}$次；$x_e^1,x_e^2,...,x_e^t$
+
+> 由chernoff-hoeffding不等式[^3]: 
+>
+> <img src="https://tva1.sinaimg.cn/large/0081Kckwgy1glhd99tsmdj30tu0hsmzd.jpg" style="zoom:33%;">
+>
+> Chernoff bound:
+>
+> <img src="https://tva1.sinaimg.cn/large/0081Kckwly1glhm3uqfjdj312s0nq77m.jpg" style="zoom: 50%;">
+
+可以得到：
+$$
+\operatorname{Pr}\left[\left|\frac{1}{t} \sum_{i=1}^{t} x_{e}^{i}-p_{e}\right|>\frac{k \epsilon}{2 m n}\right] \leq 2 \exp \left(-\frac{k^{2} \epsilon^{2}}{2 m^{2} n^{2}} \cdot t\right) \leq \frac{\gamma}{m}
+$$
+那么对于所有的边，因为边具有独立性，因此满足联合bound：
+$$
+\operatorname{Pr}\left[\forall e \in E,\left|\frac{1}{t} \sum_{i=1}^{t} x_{e}^{i}-p_{e}\right|>\frac{k \epsilon}{2 m n}\right] \leq \gamma
+$$
+因此，当我们对每个边进行t次采样，那么真实值$p_e$在$[\frac{1}{t} \sum_{i=1}^{t} x_{e}^{i}-\frac{k \epsilon}{2 m n},\frac{1}{t} \sum_{i=1}^{t} x_{e}^{i}+\frac{k \epsilon}{2 m n}]$的概率为$1-\gamma$。
+
+(2) Adaptive Sampling：总体思想为，上面统一sample，每条边的$l_e,r_e$的区间大小相同，且sample的数量相同，为了让一些重要的节点更准确，会动态的增加sample数量；如初始化一个seed set $S$，用IC的传播，当某些节点被对被激活的点的边在此sample一次，然后更新sample样例集合；通过更新后的集合再次选择seed set $S$；
+
+##### 2.2 <font color="009393">Robust Influence Maximization for Hyperparametric Models-ICML2019</font>
+
+<p>这篇文章从另一个角度来思考robust influence maximization问题；在上面的模型中，假设边的影响概率是在一个估计的区间内，本文中认为影响概率可能是一个函数，该函数与边上两个节点的特征向量有关，因此需要找到一组合适函数参数$\theta$；</p>
 <font color="009393"></font>
 
 <font color="ED7306"></font>
@@ -340,6 +351,10 @@ w_{t}[i] \propto \exp \left\{-\eta \sum_{\tau=1}^{t-1} f_{i}\left(S_{\tau}\right
                 <!-- Pager -->
                 <ul class="pager">
                     
+                        <li class="previous">
+                            <a href="/article/Bandit-Fairness/" data-toggle="tooltip" data-placement="top" title="Bandit & Fairness">&larr; Previous Post</a>
+                        </li>
+                    
                     
                         <li class="next">
                             <a href="/article/Strategyproof-Reinforcement-Learning-for-Online-Resource-Allocation/" data-toggle="tooltip" data-placement="top" title="Strategyproof Reinforcement Learning for Online Resource Allocation">Next Post &rarr;</a>
@@ -398,7 +413,7 @@ w_{t}[i] \propto \exp \left\{-\eta \sum_{\tau=1}^{t-1} f_{i}\left(S_{\tau}\right
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#robust-influence-maximization"><span class="toc-nav-number">1.</span> <span class="toc-nav-text"><a href="#Robust-Influence-Maximization" class="headerlink" title="Robust Influence Maximization"></a>Robust Influence Maximization</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1-background"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text"><a href="#1-Background" class="headerlink" title="1. Background"></a>1. Background</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2-model-amp-method"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text"><a href="#2-Model-amp-Method" class="headerlink" title="2. Model &amp; Method"></a>2. Model &amp; Method</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#21-robust-influence-maximization-kdd20162"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text"><a href="#2-1-Robust-Influence-Maximization-KDD20162" class="headerlink" title="2.1 Robust Influence Maximization-KDD20162"></a>2.1 <font color="009393">Robust Influence Maximization-KDD2016</font><sup><a href="#fn_2" id="reffn_2">2</a></sup></span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#211-model"><span class="toc-nav-number">1.2.1.1.</span> <span class="toc-nav-text"><a href="#2-1-1-Model" class="headerlink" title="2.1.1 Model"></a>2.1.1 Model</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#212-method"><span class="toc-nav-number">1.2.1.2.</span> <span class="toc-nav-text"><a href="#2-1-2-Method" class="headerlink" title="2.1.2 Method"></a>2.1.2 Method</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#213-sampling-for-improvement"><span class="toc-nav-number">1.2.1.3.</span> <span class="toc-nav-text"><a href="#2-1-3-Sampling-for-Improvement" class="headerlink" title="2.1.3 Sampling for Improvement"></a>2.1.3 Sampling for Improvement</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#22-robust-influence-maximization-for-hyperparametric-models-icml2019"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text"><a href="#2-2-Robust-Influence-Maximization-for-Hyperparametric-Models-ICML2019" class="headerlink" title="2.2 Robust Influence Maximization for Hyperparametric Models-ICML2019"></a>2.2 <font color="009393">Robust Influence Maximization for Hyperparametric Models-ICML2019</font></span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#221-model"><span class="toc-nav-number">1.2.2.1.</span> <span class="toc-nav-text"><a href="#2-2-1-Model" class="headerlink" title="2.2.1 Model"></a>2.2.1 Model</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#222-method"><span class="toc-nav-number">1.2.2.2.</span> <span class="toc-nav-text"><a href="#2-2-2-Method" class="headerlink" title="2.2.2 Method"></a>2.2.2 Method</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#3-conclusion"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text"><a href="#3-Conclusion" class="headerlink" title="3. Conclusion"></a>3. Conclusion</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#robust-influence-maximization"><span class="toc-nav-number">1.</span> <span class="toc-nav-text"><a href="#Robust-Influence-Maximization" class="headerlink" title="Robust Influence Maximization"></a>Robust Influence Maximization</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1-background"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text"><a href="#1-Background" class="headerlink" title="1. Background"></a>1. Background</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2-model-amp-method"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text"><a href="#2-Model-amp-Method" class="headerlink" title="2. Model &amp; Method"></a>2. Model &amp; Method</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#21-robust-influence-maximization-kdd20162"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text"><a href="#2-1-Robust-Influence-Maximization-KDD20162" class="headerlink" title="2.1 Robust Influence Maximization-KDD20162"></a>2.1 <font color="009393">Robust Influence Maximization-KDD2016</font><sup><a href="#fn_2" id="reffn_2">2</a></sup></span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#211-model"><span class="toc-nav-number">1.2.1.1.</span> <span class="toc-nav-text"><a href="#2-1-1-Model" class="headerlink" title="2.1.1 Model"></a>2.1.1 Model</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#212-method"><span class="toc-nav-number">1.2.1.2.</span> <span class="toc-nav-text"><a href="#2-1-2-Method" class="headerlink" title="2.1.2 Method"></a>2.1.2 Method</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#213-sampling-for-improvement"><span class="toc-nav-number">1.2.1.3.</span> <span class="toc-nav-text"><a href="#2-1-3-Sampling-for-Improvement" class="headerlink" title="2.1.3 Sampling for Improvement"></a>2.1.3 Sampling for Improvement</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#221-model"><span class="toc-nav-number">1.2.1.4.</span> <span class="toc-nav-text"><a href="#2-2-1-Model" class="headerlink" title="2.2.1 Model"></a>2.2.1 Model</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#222-method"><span class="toc-nav-number">1.2.1.5.</span> <span class="toc-nav-text"><a href="#2-2-2-Method" class="headerlink" title="2.2.2 Method"></a>2.2.2 Method</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#3-conclusion"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text"><a href="#3-Conclusion" class="headerlink" title="3. Conclusion"></a>3. Conclusion</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -520,7 +535,7 @@ w_{t}[i] \propto \exp \left\{-\eta \sum_{\tau=1}^{t-1} f_{i}\left(S_{\tau}\right
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Xiang Liu 2020 
+                    Copyright &copy; Xiang Liu 2021 
                     <br>
                     Theme by <a href="http://beantech.org">BeanTech</a> 
                     <span style="display: inline-block; margin: 0 5px;">
