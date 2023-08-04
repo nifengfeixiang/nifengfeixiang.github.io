@@ -11,32 +11,28 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* B.S. in Dalian University of Technology, Cyber Engineering, 2012-2016
+* Ph.D in Southeast University, Computer Science and Technology, 2016-2023
 
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* 2021.05 – Present: Research Assistant
+  * Caritas Institute of Higher Education/City University of Hong Kong
+  * Supervisor: Prof. Yinchao Zhao & Prof. Minming Li
   
-Skills
+* 2019.10 – 2020.01: Research Assistant
+  * City University of Hong Kong
+  * Supervisor: Prof. Minming Li
+  
+Research Interests
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Auction and Pricing Mechanism
+* Algorithm Design and Analysis
+* Reinforcement Learning
+* Multi-agent System and Artificial Intelligence
 
-Publications
+
+<!-- Publications
 ======
   <ul>{% for post in site.publications %}
     {% include archive-single-cv.html %}
@@ -52,8 +48,8 @@ Teaching
 ======
   <ul>{% for post in site.teaching %}
     {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+  {% endfor %}</ul> -->
   
 Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* Serve as an Area Chair for IJCAI 2023
