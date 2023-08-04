@@ -2,7 +2,7 @@
 title: "Budget-Feasible Sybil-Proof Mechanisms for Crowdsensing"
 collection: publications
 permalink: /publication/2022-Budget-Feasible Sybil-Proof Mechanisms for Crowdsensing
-# excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
+excerpt: 'In this paper, we design a budget-feasible incentive mechanism which can guarantee truthfulness and deter Sybil attack.'
 date: 2022-07-10
 venue: 'International Workshop on Frontiers in Algorithmics'
 # paperurl: 'http://nifengfeixiang.github.io/files/Budget-Feasible_Mechanisms_in_Two-Sided_Crowdsensing_Markets_Truthfulness_Fairness_and_Efficiency.pdf'

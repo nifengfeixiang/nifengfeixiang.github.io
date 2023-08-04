@@ -2,7 +2,7 @@
 title: "Budget-Feasible Mechanisms in Two-Sided Crowdsensing Markets Truthfulness Fairness and Efficiency"
 collection: publications
 permalink: /publication/2022-Budget-Feasible-Mechanisms-in-Two-Sided-Crowdsensing-Markets-Truthfulness-Fairness-and-Efficiency
-# excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
+excerpt: 'In this paper, we investigate budget-feasible mechanisms in two-sided crowdsensing markets where multiple strategic requesters come with private budgets to obtain services from the strategic users.'
 date: 2022-07-01
 venue: 'IEEE Transaction on Mobile Computing (TMC)'
 # paperurl: 'http://nifengfeixiang.github.io/files/Budget-Feasible_Mechanisms_in_Two-Sided_Crowdsensing_Markets_Truthfulness_Fairness_and_Efficiency.pdf'
