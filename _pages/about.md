@@ -11,6 +11,7 @@ redirect_from:
 I received the B.Sc. degree from the Dalian University of Technology and the Ph.D. degree from the Southeast University. I'm currently the postdoc of Chinese University of Hong Kong and Southeast University.  I have published several articles in international conference proceedings and journals, such as IJCAI, AAMAS, AAAI, TMC and AIJ. My main research interests include algorithmic game theory, mechanism design, and reinforcement learning.
 
 > News!
+
 > Our one new paper on auction mechanism design is accepted in AIJ.
 
 
