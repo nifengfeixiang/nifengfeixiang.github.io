@@ -4,7 +4,7 @@ collection: publications
 permalink: /publication/2021-Budget-feasible Mechanisms for Representing Groups of Agents Proportionally
 excerpt: 'In this paper, we consider the problem of designing budget-feasible mechanisms for selecting agents with private costs from various groups to ensure proportional representation.'
 date: 2021-07-10
-venue: 'International Joint Conference on Artificial Intelligence (IJCAI2021)'
+venue: 'International Joint Conference on Artificial Intelligence (IJCAI)'
 # paperurl: 'http://nifengfeixiang.github.io/files/Budget-Feasible_Mechanisms_in_Two-Sided_Crowdsensing_Markets_Truthfulness_Fairness_and_Efficiency.pdf'
 # citation: 'Liu, Xiang, et al. "Budget-feasible mechanisms in two-sided crowdsensing markets: Truthfulness, fairness, and efficiency." IEEE Transactions on Mobile Computing (2022).'
 ---

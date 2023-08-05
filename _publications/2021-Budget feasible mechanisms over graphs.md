@@ -4,7 +4,7 @@ collection: publications
 permalink: /publication/2021-Budget feasible mechanisms over graphs
 excerpt: 'This paper studies the budget-feasible mechanism design over graphs, where a buyer wishes to procure items from sellers, and all participants (the buyer and sellers) can only directly interact with their neighbors during the auction campaign.'
 date: 2021-07-10
-venue: 'AAAI Conference on Artificial Intelligence (AAAI2021)'
+venue: 'AAAI Conference on Artificial Intelligence (AAAI)'
 # paperurl: 'http://nifengfeixiang.github.io/files/Budget-Feasible_Mechanisms_in_Two-Sided_Crowdsensing_Markets_Truthfulness_Fairness_and_Efficiency.pdf'
 # citation: 'Liu, Xiang, et al. "Budget-feasible mechanisms in two-sided crowdsensing markets: Truthfulness, fairness, and efficiency." IEEE Transactions on Mobile Computing (2022).'
 ---
