@@ -13,7 +13,6 @@ I received the B.Sc. degree from the Dalian University of Technology and the Ph.
 > <font color=red>News!</font>
 >
 > 2023-08: Our one new paper on auction mechanism design is accepted in AIJ.
->
 > 2023-05: Our one new paper on Sybil-proof mechanism design is accepted in TCS.
 
 
