@@ -52,4 +52,4 @@ Teaching
   
 Service and leadership
 ======
-* Serve as an Area Chair for IJCAI 2023
+* Serve as PC for IJCAI 2023
