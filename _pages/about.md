@@ -11,6 +11,8 @@ redirect_from:
 I received the B.Sc. degree from the Dalian University of Technology and the Ph.D. degree from the Southeast University. I'm currently the postdoc of Chinese University of Hong Kong and Southeast University.  I have published several articles in international conference proceedings and journals, such as INFOCOM, IJCAI, AAMAS, AAAI, TMC and AIJ. My main research interests include algorithmic game theory, mechanism design, and reinforcement learning.
 
 > <font color=red>News!</font>
+> 2024-12: Our one new paper on budgeted pricing is accepted in AAAI-2025 (CCF A).
+>
 > 2024-12: Our one new paper on incentive mechanism design in federated learning is accepted in INFOCOM-2025 (CCF A).
 > 
 > 2024-04: Our one new paper on the survey of budget feasible mechanism design is accepted in IJCAI-2024 (CCF A).
