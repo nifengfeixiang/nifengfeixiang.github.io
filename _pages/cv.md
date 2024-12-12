@@ -17,8 +17,8 @@ Education
 Work experience
 ======
 * 2023.11- Present: Joint Postdoc
-  * Southeast University \& The Chinese University of Hong Kong
-  * Supervisor: Prof. [Weiwei Wu](https://cse.seu.edu.cn/2020/1127/c31105a354636/page.htm) \& Prof. [John C.S. Lui](http://www.cse.cuhk.edu.hk/~cslui/)
+  * Southeast University & The Chinese University of Hong Kong
+  * Supervisor: Prof. [Weiwei Wu](https://cse.seu.edu.cn/2020/1127/c31105a354636/page.htm) & Prof. [John C.S. Lui](http://www.cse.cuhk.edu.hk/~cslui/)
 
 * 2021.05 – 2023.12: Research Assistant
   * Caritas Institute of Higher Education/City University of Hong Kong
