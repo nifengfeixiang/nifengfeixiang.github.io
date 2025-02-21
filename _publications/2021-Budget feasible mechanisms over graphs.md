@@ -1,6 +1,7 @@
 ---
 title: "Budget feasible mechanisms over graphs"
 collection: publications
+category: conferences
 permalink: /publication/2021-Budget feasible mechanisms over graphs
 excerpt: 'This paper studies the budget-feasible mechanism design over graphs, where a buyer wishes to procure items from sellers, and all participants (the buyer and sellers) can only directly interact with their neighbors during the auction campaign.'
 date: 2021-07-10

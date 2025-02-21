@@ -1,6 +1,7 @@
 ---
 title: "Budget-feasible Procurement Mechanisms in Two-sided Markets"
 collection: publications
+category: conferences
 permalink: /publication/2018-Budget-feasible Procurement Mechanisms in Two-sided Markets.
 excerpt: 'This paper considers the mechanism design problem in two-sided markets where multiple strategic buyers come with budgets to procure as much value of items as possible from the strategic sellers.'
 date: 2018-07-10

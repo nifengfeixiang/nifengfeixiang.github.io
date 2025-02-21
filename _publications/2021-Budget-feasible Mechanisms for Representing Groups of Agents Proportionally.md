@@ -1,6 +1,7 @@
 ---
 title: "Budget-feasible Mechanisms for Representing Groups of Agents Proportionally."
 collection: publications
+category: conferences
 permalink: /publication/2021-Budget-feasible Mechanisms for Representing Groups of Agents Proportionally
 excerpt: 'In this paper, we consider the problem of designing budget-feasible mechanisms for selecting agents with private costs from various groups to ensure proportional representation.'
 date: 2021-07-10

@@ -1,6 +1,7 @@
 ---
 title: "Budget-feasible Mechanisms for Proportionally Selecting Agents from Groups"
 collection: publications
+category: manuscripts
 permalink: /publication/2023-Budget-feasible Mechanisms for Proportionally Selecting Agents from Groups
 excerpt: 'In this paper, we consider the problem of designing budget-feasible mechanisms for selecting agents with private costs from various groups to ensure proportional representation, where the minimum proportion of the overall value of the selected agents from each group is maximized.'
 date: 2023-08-01

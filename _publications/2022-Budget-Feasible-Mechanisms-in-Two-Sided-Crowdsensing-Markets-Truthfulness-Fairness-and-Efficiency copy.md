@@ -1,6 +1,7 @@
 ---
 title: "Budget-Feasible Mechanisms in Two-Sided Crowdsensing Markets Truthfulness Fairness and Efficiency"
 collection: publications
+category: manuscripts
 permalink: /publication/2022-Budget-Feasible-Mechanisms-in-Two-Sided-Crowdsensing-Markets-Truthfulness-Fairness-and-Efficiency
 excerpt: 'In this paper, we investigate budget-feasible mechanisms in two-sided crowdsensing markets where multiple strategic requesters come with private budgets to obtain services from the strategic users.'
 date: 2022-07-01

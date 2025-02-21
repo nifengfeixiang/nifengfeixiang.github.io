@@ -1,6 +1,7 @@
 ---
 title: "Budget-Feasible Sybil-Proof Mechanisms for Crowdsensing"
 collection: publications
+category: manuscripts
 permalink: /publication/2022-Budget-Feasible Sybil-Proof Mechanisms for Crowdsensing
 excerpt: 'In this paper, we design a budget-feasible incentive mechanism which can guarantee truthfulness and deter Sybil attack.'
 date: 2022-07-10
