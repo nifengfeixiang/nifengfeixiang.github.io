@@ -2,7 +2,7 @@
 title: "CARE: Compatibility-Aware Incentive Mechanisms for Federated Learning with Budgeted Requesters"
 collection: publications
 category: conferences
-permalink: /publication/2025-CARE: Compatibility-Aware Incentive Mechanisms for Federated Learning with Budgeted Requesters
+permalink: /publication/2025-CARE-Compatibility-Aware Incentive Mechanisms for Federated Learning with Budgeted Requesters
 excerpt: 'In this paper, we investigate the scenario in FL where multiple budgeted requesters seek training services from incompatible workers with private training costs.'
 date: 2025-05-18
 venue: 'IEEE International Conference on Computer Communications (INFOCOM-2025)'
