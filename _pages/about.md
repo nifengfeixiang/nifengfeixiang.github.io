@@ -27,7 +27,7 @@ Research Interests
 - **LLM-based Multi-agent System**: Orchestrate LLM agents that negotiate, coordinate, and self-improve through natural-language communication, leveraging emergent reasoning to solve cooperative or competitive tasks while maintaining interpretability and alignment.
 
 
-I am always open to collaborating with researchers whose interests overlap, or even just touch, mine, and I am currently recruiting motivated graduate students; please feel free to reach out.
+I am always open to collaborating with researchers whose interests overlap, or even just touch, mine, and I am currently recruiting motivated **graduate students**; please feel free to reach out.
 
 ---
 

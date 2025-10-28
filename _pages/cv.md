@@ -28,12 +28,12 @@ Work experience
   * City University of Hong Kong
   * Supervisor: Prof. [Minming Li](https://www.cs.cityu.edu.hk/~minmli/)
   
-Research Interests
+<!-- Research Interests
 ======
 * Auction and Pricing Mechanism
 * Algorithm Design and Analysis
 * Reinforcement Learning
-* Multi-agent System and Artificial Intelligence
+* Multi-agent System and Artificial Intelligence -->
 
 
 <!-- Publications
