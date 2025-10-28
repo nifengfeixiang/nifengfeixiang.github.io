@@ -8,6 +8,8 @@ author_profile: true
 {% if site.author.googlescholar %}
   <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
 {% endif %}
+  
+---  
 
 Conference Papers
 ======
@@ -17,7 +19,8 @@ Conference Papers
   In Proceedings of *IEEE Conference on Computer Communications (INFOCOM)*, 2025.   
   [[PDF]](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11044535)  
 
-  ss
+
+---
 
 Journal Papers
 ======
