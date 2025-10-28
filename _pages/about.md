@@ -11,7 +11,7 @@ redirect_from:
 <!-- I received the B.Sc. degree from the Dalian University of Technology and the Ph.D. degree from the department of [Computer Science and Engineering, Southeast University](https://cs.seu.edu.cn/main.htm) under the supervison of Prof. [Weiwei Wu](https://cse.seu.edu.cn/2020/1127/c31105a354636/page.htm). I'm currently the postdoc of Southeast University. Also, I'm currently the (honored) postdoc of [The Chinese University of Hong Kong and Southeast University](https://www.cuhk.edu.hk/chinese/index.html) under the supervison of Prof. [John C.S. Lui](http://www.cse.cuhk.edu.hk/~cslui/).  -->
 <!-- I also had the opportunity to work as a research assistant at [City University of Hong Kong](https://www.cityu.edu.hk/zh-hk) under the  supervison of Prof. [Minming Li](https://www.cs.cityu.edu.hk/~minmli/) -->
 
-I received my B.Sc. from Dalian University of Technology and my Ph.D. from the Department of[Computer Science and Engineering, Southeast University](https://cs.seu.edu.cn/main.htm), under the supervision of Prof. [Weiwei Wu](https://cse.seu.edu.cn/2020/1127/c31105a354636/page.htm). I am currently a postdoctoral researcher at Southeast University and an honored joint postdoc at [The Chinese University of Hong Kong and Southeast University](https://www.cuhk.edu.hk/chinese/index.html), supervised by Prof. [John C.S. Lui](http://www.cse.cuhk.edu.hk/~cslui/). Previously, I worked as a research assistant at [City University of Hong Kong](https://www.cityu.edu.hk/zh-hk) with Prof. [Minming Li](https://www.cs.cityu.edu.hk/~minmli/).
+I received my B.Sc. from Dalian University of Technology and my Ph.D. from the Department of [Computer Science and Engineering, Southeast University](https://cs.seu.edu.cn/main.htm), under the supervision of Prof. [Weiwei Wu](https://cse.seu.edu.cn/2020/1127/c31105a354636/page.htm). I am currently a postdoctoral researcher at Southeast University and an honored joint postdoc in [ANSR Lab](http://ansrlab.cse.cuhk.edu.hk) at [The Chinese University of Hong Kong and Southeast University](https://www.cuhk.edu.hk/chinese/index.html), supervised by Prof. [John C.S. Lui](http://www.cse.cuhk.edu.hk/~cslui/). Previously, I worked as a research assistant at [City University of Hong Kong](https://www.cityu.edu.hk/zh-hk) with Prof. [Minming Li](https://www.cs.cityu.edu.hk/~minmli/).
 
 ---
 
@@ -25,6 +25,9 @@ Research Interests
 - **Reinforcement Learning**: Create sample-efficient RL methods, including model-based, model-free, and hybrid approaches, that handle large state-action spaces via function approximation, transfer learning, and safe exploration.
 
 - **LLM-based Multi-agent System**: Orchestrate LLM agents that negotiate, coordinate, and self-improve through natural-language communication, leveraging emergent reasoning to solve cooperative or competitive tasks while maintaining interpretability and alignment.
+
+
+I am always open to collaborating with researchers whose interests overlap, or even just touch, mine, and I am currently recruiting motivated graduate students; please feel free to reach out.
 
 ---
 
