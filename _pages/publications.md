@@ -13,11 +13,8 @@ Conference Papers
 ======
 
 - ![INFOCOM](https://img.shields.io/badge/INFOCOM-2025-005f73?style=for-thebadge&colorA=005f73&colorB=ffb703) **CARE: Compatibility-Aware Incentive Mechanisms for Federated Learning with Budgeted Requesters**
-
   **Xiang Liu**, Hau Chan, Minming Li, Xianlong Zeng, Chenchen Fu, Weiwei Wu
-
   In Proceedings of *IEEE Conference on Computer Communications (INFOCOM)*, 2025. 
-
   [[PDF]](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11044535)
 
 Journal Papers
@@ -45,6 +42,6 @@ Journal Papers
   {% for post in site.publications reversed %}
     {% include archive-single.html %}
   {% endfor %}
-{% endif %} --> -->
+{% endif %} --> 
 
 
