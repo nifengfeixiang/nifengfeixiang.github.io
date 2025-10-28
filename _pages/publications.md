@@ -19,11 +19,23 @@ Conference Papers
   In Proceedings of *IEEE Conference on Computer Communications (INFOCOM)*, 2025.   
   [[PDF]](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11044535)  
 
+- ![AAAI](https://img.shields.io/badge/AAAI-2025-005f73?style=for-thebadge&colorA=005f73&colorB=ffb703) **Non-stochastic Budgeted Online Pricing with Semi-Bandit Feedback**  
+  **Xiang Liu**, Hau Chan, Minming Li, Weiwei Wu, Long Tran-Thanh  
+  In Proceedings of *the AAAI Conference on Artificial Intelligence (AAAI)*, 2025.   
+  [[PDF]](https://ojs.aaai.org/index.php/AAAI/article/view/34089/36244)  
 
+- ![IJCAI](https://img.shields.io/badge/IJCAI-2024-005f73?style=for-thebadge&colorA=005f73&colorB=ffb703) **Budget feasible mechanisms: A survey**  
+  **Xiang Liu**, Hau Chan, Minming Li, Weiwei Wu    
+  In Proceedings of *the 33rd International Joint Conference on Artificial Intelligence (IJCAI)*, 2024.   
+  [[PDF]](https://www.ijcai.org/proceedings/2024/0899.pdf)  
 ---
 
 Journal Papers
 ======
+- ![TMC](https://img.shields.io/badge/TMC-2025-005f73?style=for-thebadge&colorA=005f73&colorB=ffb703) **Budget-Feasible Diffusion Mechanisms for Mobile Crowdsourcing in Social Networks**  
+  **Xiang Liu**, Weiwei Wu, Minming Li, Wanyuan Wang, Yifan Qin, Yingchao Zhao, Junzhou Luo  
+  In *IEEE Transactions on Mobile Computing (TMC)*, 2025.   
+  [[PDF]](https://ieeexplore.ieee.org/iel8/7755/4358975/10938284.pdf)  
 
 <!-- {% include base_path %}
 
