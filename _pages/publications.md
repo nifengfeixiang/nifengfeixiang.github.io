@@ -9,14 +9,21 @@ author_profile: true
   <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
 {% endif %}
 
-Conferences
+Conference Papers
 ======
 
-{% include base_path %}
+- `INFOCOM'25` **CARE: Compatibility-Aware Incentive Mechanisms for Federated Learning with Budgeted Requesters**
+**Xiang Liu**, Hau Chan, Minming Li, Xianlong Zeng, Chenchen Fu, Weiwei Wu
+In Proceedings of IEEE Conference on Computer Communications (INFOCOM). 2025.   
+
+Journal Papers
+======
+
+<!-- {% include base_path %}
 
 <!-- New style rendering if publication categories are defined -->
 
-{% if site.publication_category %}
+<!-- {% if site.publication_category %}
   {% for category in site.publication_category  %}
     {% assign title_shown = false %}
     {% for post in site.publications reversed %}
@@ -34,6 +41,6 @@ Conferences
   {% for post in site.publications reversed %}
     {% include archive-single.html %}
   {% endfor %}
-{% endif %}
+{% endif %} --> -->
 
 
