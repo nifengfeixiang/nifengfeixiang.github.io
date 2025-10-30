@@ -53,7 +53,7 @@ Conference Papers
 
 - ![IJCAI](https://img.shields.io/badge/IJCAI-2018-005f73?style=for-thebadge&colorA=005f73&colorB=ffb703) **Budget-feasible Procurement Mechanisms in Two-sided Markets.**  
   Weiwei Wu, **Xiang Liu#**, Minming Li    
-  In Proceedings of *the International Joint Conference on Artificial Intelligence (IJCAI)*, 2021.   
+  In Proceedings of *the International Joint Conference on Artificial Intelligence (IJCAI)*, 2018.   
   [[PDF]](https://www.ijcai.org/Proceedings/2018/0076.pdf)  
 
 ---
