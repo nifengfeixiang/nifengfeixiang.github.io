@@ -35,13 +35,15 @@ NEWS
 ======
 
 <!-- > <font color=red>News!</font> -->
+> 2025-12: Our one new paper on model retraining is accepted by **INFOCOM (CCF A)**. > <font color=red>Congratulations to Jianping!</font>
+>
 > 2025-02: Our one new paper on budgeted diffusion mechanism is accepted by **TMC (CCF A)**.
 >
 > 2024-12: Our one new paper on budgeted pricing is accepted in **AAAI-2025 (CCF A)**.
 >
-> 2024-12: Our one new paper on incentive mechanism design in federated learning is accepted in **INFOCOM-2025 (CCF A)**.
+> 2024-12: Our one new paper on incentive mechanism design in federated learning is accepted in **INFOCOM (CCF A)**.
 > 
-> 2024-04: Our one new paper on the survey of budget feasible mechanism design is accepted in **IJCAI-2024 (CCF A)**.
+> 2024-04: Our one new paper on the survey of budget feasible mechanism design is accepted in **IJCAI (CCF A)**.
 > 
 > 2023-09: Our one new paper on budgeted pricing bandit is accepted in **JSAC (CCF A)**.
 > 
