@@ -35,7 +35,7 @@ NEWS
 ======
 
 <!-- > <font color=red>News!</font> -->
-> 2025-12: Our one new paper on model retraining is accepted by **INFOCOM (CCF A)**. > <font color=red>Congratulations to Jianping!</font>
+> 2025-12: Our one new paper on model retraining is accepted by **INFOCOM (CCF A)**. <font color=red>Congratulations to Jianping!</font>
 >
 > 2025-02: Our one new paper on budgeted diffusion mechanism is accepted by **TMC (CCF A)**.
 >
