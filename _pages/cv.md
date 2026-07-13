@@ -56,4 +56,6 @@ Teaching
   
 Service and leadership
 ======
+* Serve as PC for ICML 2026 (Gold Reviewer)
+
 * Serve as PC for IJCAI 2023
