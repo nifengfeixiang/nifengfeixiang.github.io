@@ -58,4 +58,6 @@ Service and leadership
 ======
 * Serve as PC for ICML 2026 (Gold Reviewer)
 
-* Serve as PC for IJCAI 2023
+* Serve as Publication Chair for TAMC 2025
+
+* Serve as PC for IJCAI/AAAI/ICML
